@@ -152,20 +152,6 @@ session_start()
                                                 <h3 class="text-xl font-medium text-pink-500">
                                                     WIFI
                                                 </h3>
-                                                <a href="../wifi/wifi_facility_list.php" class="inline-flex items-start p-3 -m-3 transition duration-150 ease-in-out rounded-xl group hover:bg-white">
-                                                    <div class="">
-                                                    <svg  class="w-6 h-6 text-white group-hover:text-sky-800 md hydrated"  xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 16 16"><path fill="currentColor" d="M1.5 0A1.5 1.5 0 0 0 0 1.5v2A1.5 1.5 0 0 0 1.5 5h13A1.5 1.5 0 0 0 16 3.5v-2A1.5 1.5 0 0 0 14.5 0h-13zm1 2h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1 0-1zm9.927.427A.25.25 0 0 1 12.604 2h.792a.25.25 0 0 1 .177.427l-.396.396a.25.25 0 0 1-.354 0l-.396-.396zM0 8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V8zm1 3v2a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2H1zm14-1V8a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v2h14zM2 8.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0 4a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5z"/></svg>
-                                                       
-                                                    </div>
-                                                    <div class="ml-4">
-                                                        <p class="text-base font-medium text-pink-500">
-                                                             Facility Wifi List
-                                                        </p>
-                                                        <p class="mt-1 text-lg text-white group-hover:text-sky-800">
-                                                            Trending designs to inspire you
-                                                        </p>
-                                                    </div>
-                                                </a>
                                                 <a href="../wifi/wifi_facility_add.php" class="inline-flex items-start p-3 -m-3 transition duration-150 ease-in-out rounded-xl group hover:bg-white">
                                                     <div class="">
                                                        
@@ -180,6 +166,21 @@ session_start()
                                                         </p>
                                                     </div>
                                                 </a>
+                                                <a href="../wifi/wifi_facility_list.php" class="inline-flex items-start p-3 -m-3 transition duration-150 ease-in-out rounded-xl group hover:bg-white">
+                                                    <div class="">
+                                                    <svg  class="w-6 h-6 text-white group-hover:text-sky-800 md hydrated"  xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 16 16"><path fill="currentColor" d="M1.5 0A1.5 1.5 0 0 0 0 1.5v2A1.5 1.5 0 0 0 1.5 5h13A1.5 1.5 0 0 0 16 3.5v-2A1.5 1.5 0 0 0 14.5 0h-13zm1 2h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1 0-1zm9.927.427A.25.25 0 0 1 12.604 2h.792a.25.25 0 0 1 .177.427l-.396.396a.25.25 0 0 1-.354 0l-.396-.396zM0 8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V8zm1 3v2a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2H1zm14-1V8a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v2h14zM2 8.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0 4a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5z"/></svg>
+                                                       
+                                                    </div>
+                                                    <div class="ml-4">
+                                                        <p class="text-base font-medium text-pink-500">
+                                                             Facility Wifi List
+                                                        </p>
+                                                        <p class="mt-1 text-lg text-white group-hover:text-sky-800">
+                                                            Trending designs to inspire you
+                                                        </p>
+                                                    </div>
+                                                </a>
+                                              
                                                 <a href="../wifi/wifi_facility.php" class="inline-flex items-start p-3 -m-3 transition duration-150 ease-in-out rounded-xl group hover:bg-white">
                                                     <div class="">
                                                        
@@ -188,6 +189,20 @@ session_start()
                                                     <div class="ml-4">
                                                         <p class="text-base font-medium text-pink-500">
                                                             Facility Wifi Details
+                                                        </p>
+                                                        <p class="mt-1 text-lg text-white group-hover:text-sky-800">
+                                                            Interviews, tutorials and more
+                                                        </p>
+                                                    </div>
+                                                </a>
+                                                <a href="../wifi/wifi_facility_office_add.php" class="inline-flex items-start p-3 -m-3 transition duration-150 ease-in-out rounded-xl group hover:bg-white">
+                                                    <div class="">
+                                                       
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white group-hover:text-sky-800 md hydrated"  width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M18 18h-2q-.425 0-.713-.288T15 17q0-.425.288-.713T16 16h2v-2q0-.425.288-.713T19 13q.425 0 .713.288T20 14v2h2q.425 0 .713.288T23 17q0 .425-.288.713T22 18h-2v2q0 .425-.288.713T19 21q-.425 0-.713-.288T18 20v-2Zm-6.7 2.3L.725 9.725q-.3-.3-.3-.725t.325-.7q2.275-2.125 5.225-3.212T12 4q3.05 0 6.025 1.088T23.25 8.3q.3.275.313.7t-.288.725l-1.7 1.7q-.525-.25-1.1-.388t-1.2-.162L21.1 9.05q-1.975-1.5-4.3-2.275T12 6q-2.475 0-4.8.775T2.9 9.05l9.1 9.1l.875-.875q.025.625.163 1.2t.387 1.1l-.725.725q-.3.3-.7.3t-.7-.3Zm.7-8.225Z"/></svg>
+                                                    </div>
+                                                    <div class="ml-4">
+                                                        <p class="text-base font-medium text-pink-500">
+                                                            Office Add wifi
                                                         </p>
                                                         <p class="mt-1 text-lg text-white group-hover:text-sky-800">
                                                             Interviews, tutorials and more
@@ -208,21 +223,8 @@ session_start()
                                                         </p>
                                                     </div>
                                                 </a>
-                                                <a href="../wifi/wifi_facility_office_add.php" class="inline-flex items-start p-3 -m-3 transition duration-150 ease-in-out rounded-xl group hover:bg-white">
-                                                    <div class="">
-                                                       
-                                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white group-hover:text-sky-800 md hydrated"  width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M18 18h-2q-.425 0-.713-.288T15 17q0-.425.288-.713T16 16h2v-2q0-.425.288-.713T19 13q.425 0 .713.288T20 14v2h2q.425 0 .713.288T23 17q0 .425-.288.713T22 18h-2v2q0 .425-.288.713T19 21q-.425 0-.713-.288T18 20v-2Zm-6.7 2.3L.725 9.725q-.3-.3-.3-.725t.325-.7q2.275-2.125 5.225-3.212T12 4q3.05 0 6.025 1.088T23.25 8.3q.3.275.313.7t-.288.725l-1.7 1.7q-.525-.25-1.1-.388t-1.2-.162L21.1 9.05q-1.975-1.5-4.3-2.275T12 6q-2.475 0-4.8.775T2.9 9.05l9.1 9.1l.875-.875q.025.625.163 1.2t.387 1.1l-.725.725q-.3.3-.7.3t-.7-.3Zm.7-8.225Z"/></svg>
-                                                    </div>
-                                                    <div class="ml-4">
-                                                        <p class="text-base font-medium text-pink-500">
-                                                            Office Add wifi
-                                                        </p>
-                                                        <p class="mt-1 text-lg text-white group-hover:text-sky-800">
-                                                            Interviews, tutorials and more
-                                                        </p>
-                                                    </div>
-                                                </a>
-                                                <a href="../wifi/test.php" class="inline-flex items-start p-3 -m-3 transition duration-150 ease-in-out rounded-xl group hover:bg-white">
+                                              
+                                                <!-- <a href="../wifi/test.php" class="inline-flex items-start p-3 -m-3 transition duration-150 ease-in-out rounded-xl group hover:bg-white">
                                                     <div class="">
                                                        
                                                         <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white group-hover:text-sky-800 md hydrated"  width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M18 18h-2q-.425 0-.713-.288T15 17q0-.425.288-.713T16 16h2v-2q0-.425.288-.713T19 13q.425 0 .713.288T20 14v2h2q.425 0 .713.288T23 17q0 .425-.288.713T22 18h-2v2q0 .425-.288.713T19 21q-.425 0-.713-.288T18 20v-2Zm-6.7 2.3L.725 9.725q-.3-.3-.3-.725t.325-.7q2.275-2.125 5.225-3.212T12 4q3.05 0 6.025 1.088T23.25 8.3q.3.275.313.7t-.288.725l-1.7 1.7q-.525-.25-1.1-.388t-1.2-.162L21.1 9.05q-1.975-1.5-4.3-2.275T12 6q-2.475 0-4.8.775T2.9 9.05l9.1 9.1l.875-.875q.025.625.163 1.2t.387 1.1l-.725.725q-.3.3-.7.3t-.7-.3Zm.7-8.225Z"/></svg>
@@ -235,7 +237,7 @@ session_start()
                                                             Interviews, tutorials and more
                                                         </p>
                                                     </div>
-                                                </a>
+                                                </a> -->
                                             </div>
                                         </div>
                                     </div>

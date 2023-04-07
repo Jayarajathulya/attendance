@@ -195,7 +195,7 @@ include '../include/config.php';
     </style>
 </head>
 
-<body>
+<body class="items-center bg-zinc-100">
 
     <div>
         <?php
@@ -204,7 +204,7 @@ include '../include/config.php';
 
 
         <section>
-            <div class="items-center px-8 py-12 mx-auto lg:px-16 md:px-12 lg:py-24 bg-zinc-100">
+            <div class=" px-2 py-2 ">
                 <div class="justify-center w-full mx-auto bg-white">
                     <nav class="flex py-3 border-y" aria-label="Breadcrumb">
                         <ol role="list" class="flex items-center space-x-4">
@@ -232,23 +232,23 @@ include '../include/config.php';
                         </ol>
                     </nav>
                 </div>
-
+        
                 <div>
 
-                    <div class="relative py-3 mx-auto text-center sm:w-96">
-                        <span class="text-2xl font-semibold ">Attendance Report</span>
+                    <div class="relative py-3 mx-auto text-center sm:w-6/12">
+                        <span class="text-3xl font-semibold text-center pb-4 text-sky-800">Attendance Report</span>
                         <div class="mt-4 text-left bg-white rounded-lg shadow-xl">
                             <div class="h-2 bg-pink-400 rounded-t-md"></div>
-                            <div class="px-8 py-6 ">
+                            <div class="flex flex-row px-8 py-6 ">
                                 <!-- <form action="" method=""> -->
-                                <label class="block my-3 font-semibold text-gray-800 text-md">From</label>
-                                <input type='text' readonly id='search_fromdate' placeholder='From date' class="w-full px-4 py-2 rounded-lg bg-zinc-100 focus:outline-none datepicker">
+                                <label class="block my-3 m-4 font-semibold text-gray-800 text-md">From</label>
+                                <input type='text' readonly id='search_fromdate' placeholder='From date' class="sm:w-80 px-4 py-2 rounded-lg bg-zinc-100 focus:outline-none datepicker">
 
-                                <label class="block my-3 font-semibold text-gray-800 text-md">To</label>
-                                <input type='text' readonly id='search_todate' placeholder='To date' class="w-full px-4 py-2 rounded-lg bg-zinc-100 focus:outline-none datepicker">
-
-                                <button type="submit" name="submit" id="btn_search" class="px-6 py-2 mt-4 text-white bg-pink-500 rounded-md hover:bg-pink-600 ">Filter</button>
-
+                                <label class="block my-3 m-4 font-semibold text-gray-800 text-md">To</label>
+                                <input type='text' readonly id='search_todate' placeholder='To date' class="sm:w-80 px-4 py-2 rounded-lg bg-zinc-100 focus:outline-none datepicker">
+                                 <div class="">
+                                <button type="submit" name="submit" id="btn_search" class="px-6 py-2 ml-6 mt-1 text-white bg-pink-500 rounded-md hover:bg-pink-600 ">Filter</button>
+                                </div>
                                 <!-- </form> -->
 
                             </div>
@@ -256,7 +256,7 @@ include '../include/config.php';
                         </div>
                     </div>
 
-                    <div class="">
+                    <div class="px-20 py-30 ">
                         <div class="">
                             <table id='empTable' class="text-sm text-left border-b text-black  border-collapse border border-slate-400 display cell-border  hover nowrap order-column  row-border stripe  dt[-head|-body]-right...">
                                 <thead class="text-xs uppercase text-gray-50 bg-sky-900 ">
@@ -278,8 +278,7 @@ include '../include/config.php';
                 </div>
 
 
-
-            </div>
+</div>
         </section>
 
 

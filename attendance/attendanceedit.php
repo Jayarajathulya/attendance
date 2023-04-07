@@ -85,12 +85,12 @@ $row = mysqli_fetch_array($result);
 
 </head>
 
-<body>
+<body class="items-center bg-zinc-100">
     <?php
              include('../include/sidebar.php');          
             ?>
     <div class="h-full mx-auto bg-zinc-100">
-        <div class="items-center px-8 py-12 mx-auto lg:px-16 md:px-12 lg:py-24 bg-zinc-100">
+        <div class="px-2 py-2">
             <div class="justify-center w-full mx-auto bg-white">
                 <nav class="flex py-3 border-y" aria-label="Breadcrumb">
                     <ol role="list" class="flex items-center space-x-4">
@@ -125,7 +125,7 @@ $row = mysqli_fetch_array($result);
             <div
                 class="relative flex flex-col justify-center w-full h-full py-6 overflow-hidden antialiased text-gray-800 sm:py-12">
                 <div class="relative py-3 mx-auto text-center sm:w-96">
-                    <span class="text-2xl font-semibold">Attendance Edit</span>
+                    <span class="text-3xl font-semibold text-center pb-4 text-sky-800">Attendance Edit</span>
                     <div class="mt-4 text-left bg-white rounded-lg shadow-xl">
                         <div class="h-2 bg-pink-400 rounded-t-md"></div>
                         <div class="px-8 py-7 ">

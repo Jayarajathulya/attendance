@@ -89,12 +89,12 @@ session_start();
 
 </head>
 
-<body class="bg-zinc-100">
+<body class="items-center bg-zinc-100">
     <?php
         include('../include/sidebar.php');
    
     ?>
-    <div class="relative items-center w-full h-full px-8  mx-auto overflow-hidden antialiased text-gray-800 sm:py-12 lg:px-16 md:px-12 lg:py-24 bg-zinc-100">
+    <div class="px-2 py-2">
         <div class="justify-center w-full mx-auto bg-white">
             <nav class="flex py-3 border-y" aria-label="Breadcrumb">
                 <ol role="list" class="flex items-center space-x-4">
@@ -123,7 +123,7 @@ session_start();
             </nav>
         </div>
         <div class="relative py-3 mx-auto text-center sm:w-96">
-            <span class="text-2xl font-semibold ">Intercom Details</span>
+            <span class="text-3xl font-semibold text-center pb-4 text-sky-800">Intercom Details</span>
         </div>
 
         <div class="content-center mr-80 ml-80">

@@ -51,12 +51,12 @@ if ($total == $ThisDate) {
         <title>Document</title>
     </head>
 
-    <body class="bg-zinc-100">
+    <body class="items-center bg-zinc-100">
         <div>
             <?php
             include('../include/sidebar.php');
             ?>
-            <div class="items-center px-8 py-12 mx-auto lg:px-16 md:px-12 lg:py-24 bg-zinc-100">
+            <div class="px-2 py-2 ">
                 <div class="justify-center w-full mx-auto bg-white">
                     <nav class="flex py-3 border-y" aria-label="Breadcrumb">
                         <ol role="list" class="flex items-center space-x-4">
@@ -85,8 +85,9 @@ if ($total == $ThisDate) {
                     </nav>
                 </div>
                 <section class="container p-6 mx-auto font-medium ">
-
+                <div class="text-3xl font-semibold text-center pb-4 text-sky-800"> Facility Attendance </div>
                     <div class="w-full mb-8 overflow-hidden bg-white rounded-lg shadow-lg">
+                    
                         <div class="w-full overflow-x-auto">
                             <table class="w-full border border-separate rounded-t-lg border-spacing-1">
                                 <thead class="p-6">
@@ -111,10 +112,10 @@ if ($total == $ThisDate) {
                                     } else {
                                         $pageno = 1;
                                     }
-                                    $no_of_records_per_page = 10;
+                                    $no_of_records_per_page = 7;
                                     $offset = ($pageno - 1) * $no_of_records_per_page;
 
-                                    $total_pages_sql = "SELECT COUNT(*) FROM employee_details";
+                                    $total_pages_sql = "SELECT COUNT(*) FROM employee_details WHERE branchcode ='" . $_SESSION['branchcode'] . "'";
                                     $result = mysqli_query($conn, $total_pages_sql);
                                     $total_rows = mysqli_fetch_array($result)[0];
                                     $total_pages = ceil($total_rows / $no_of_records_per_page);
@@ -168,7 +169,7 @@ if ($total == $ThisDate) {
                                 </tbody>
                             </table>
                             <div class="flex items-baseline justify-center ">
-                                <button type="submit" name="submit" class="px-6 py-2 mt-4 mb-8 text-white bg-pink-500 rounded-md hover:bg-pink-600 ">Submit</button>
+                                <button type="submit" name="submit" class="px-6 py-2 mt-4  text-white bg-pink-500 rounded-md hover:bg-pink-600 ">Submit</button>
                             </div>
                         </div>
 
@@ -180,26 +181,26 @@ if ($total == $ThisDate) {
                     <div class="container p-6 mx-auto ">
                         <nav aria-label="Page navigation example">
                             <ul class="inline-flex -space-x-px">
-                                <li class="px-3 py-2 ml-0 leading-tight text-white bg-pink-600 border rounded-l-lg -border-gray-300 hover:bg-gray-100 hover:text-gray-700 "><a href="?pageno=1">First</a></li>
-                                <li class="bg-sky-900 border border-gray-300 text-gray-100 hover:bg-gray-100 hover:text-gray-700 leading-tight py-2 px-3  <?php if ($pageno <= 1) {
+                                <li ><a class="px-3 py-2 ml-0 leading-tight text-white bg-pink-600 border rounded-l-lg -border-gray-300 hover:bg-gray-100 hover:text-gray-700 " href="?pageno=1">First</a></li>
+                                <li >
+                                    <a class="bg-sky-900 border border-gray-300 text-gray-100 hover:bg-gray-100 hover:text-gray-700 leading-tight py-2 px-3  <?php if ($pageno <= 1) {
                                                                                                                                                                 echo 'disabled';
-                                                                                                                                                            } ?>">
-                                    <a href="<?php if ($pageno <= 1) {
+                                                                                                                                                            } ?>" href="<?php if ($pageno <= 1) {
                                                     echo '#';
                                                 } else {
                                                     echo "?pageno=" . ($pageno - 1);
                                                 } ?>">Prev</a>
                                 </li>
-                                <li class="bg-sky-900 border border-gray-300 text-gray-100 hover:bg-gray-100 hover:text-gray-700 leading-tight py-2 px-3  <?php if ($pageno >= $total_pages) {
+                                <li >
+                                    <a class="bg-sky-900 border border-gray-300 text-gray-100 hover:bg-gray-100 hover:text-gray-700 leading-tight py-2 px-3  <?php if ($pageno >= $total_pages) {
                                                                                                                                                                 echo 'disabled';
-                                                                                                                                                            } ?>">
-                                    <a href="<?php if ($pageno >= $total_pages) {
+                                                                                                                                                            } ?>" href="<?php if ($pageno >= $total_pages) {
                                                     echo '#';
                                                 } else {
                                                     echo "?pageno=" . ($pageno + 1);
                                                 } ?>">Next</a>
                                 </li>
-                                <li class="px-3 py-2 leading-tight text-white bg-pink-600 border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700"><a href="?pageno=<?php echo $total_pages; ?>">Last</a></li>
+                                <li ><a class="px-3 py-2 leading-tight text-white bg-pink-600 border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700" href="?pageno=<?php echo $total_pages; ?>">Last</a></li>
                             </ul>
                         </nav>
 

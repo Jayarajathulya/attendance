@@ -5,14 +5,14 @@ include('../include/config.php');
 include('../include/script.php');
 ?>
 <?php
-if(isset($_POST['search'])) 
+if(isset($_POST['search'])) {
         // $facility =$_POST['facility'];
         // $status = $_POST['status'];
         // $floor = $_POST['floor'];
         $roomno = $_POST['room'];
         $wifipassword = $_POST['wifipassword']; 
         $tower = $_POST['tower'];      
-        $result= mysqli_query($conn, "SELECT facility,status,floor,roomno,tower,wifipassword FROM wifi1 
+        $result= mysqli_query($conn,"SELECT * FROM wifi1 
         WHERE branchcode ='". $_SESSION['branchcode'] ."' AND roomno= '". $_POST['room'] ."'AND floor= '". $_POST['floor'] ."'AND tower= '". $_POST['tower'] ."'");
         $res = mysqli_fetch_array($result);
             $fac=$res['facility'];
@@ -21,7 +21,8 @@ if(isset($_POST['search']))
             $room=$res['roomno'];    
             $tower=$res['tower'];          
             $wifi=$res['wifipassword'];
-        
+
+}   
         ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,13 +34,13 @@ if(isset($_POST['search']))
     <link rel="icon" href="https://athulyahomecare.com/lp/images/fav.ico" />
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body >
+<body class="items-center bg-zinc-100">
 <?php
 
 include('../include/sidebar.php');
         
         ?>
-<div class="items-center px-8 mx-auto lg:px-14 md:px-10 lg:py-20 bg-zinc-100">
+<div class=" px-2 py-2">
             <div class="justify-center w-full mx-auto bg-white">
                 <nav class="flex py-3 border-y" aria-label="Breadcrumb">
                     <ol role="list" class="flex items-center space-x-4">
@@ -67,31 +68,36 @@ include('../include/sidebar.php');
                     </ol>
                 </nav>
             </div>
-        </div>
-    <div>
-        <div class="flex flex-col flex-auto flex-shrink-0 min-h-screen antialiased text-black bg-zinc-100 ">
-         
-            <div class="relative flex flex-col justify-center w-full h-full  overflow-hidden antialiased text-gray-800 ">
-                <div class="relative py-3 mx-auto text-center sm:w-96">
-                    <span class="text-2xl font-semibold ">WIFI PASSWORD</span>
+        <div class="relative flex flex-col justify-center overflow-hidden antialiased text-gray-800 sm:py-7">
+                <div class="relative  mx-auto text-center sm:w-96">
+                    <span class="text-3xl font-semibold text-center pb-4 text-sky-800">WIFI PASSWORD</span>
                     <div class="mt-4 text-left bg-white rounded-lg shadow-xl">
                         <div class="h-2 bg-pink-400 rounded-t-md"></div>
-                        <div class="px-8 py-6 ">
+                        <div class="px-8 py-2 ">
                           <form action="" method="post">
-                            <div class="flex-col space-y-4">
-                            <!-- <div class="flex ">
-                                <div class="flex items-center  mr-8 ">
-                                    <input id="inline-radio" type="radio" value="" checked name="inline-radio-group" class=" first space-y-4 w-4 h-4 text-pink-600 bg-gray-100 border-gray-300 focus:ring-pink-500 dark:focus:ring-pink-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                    <label for="inline-radio" class=" second space-y-4  ml-2 text-sm font-medium text-gray-900 dark:text-gray-300" >Facility</label>
-                                </div>                             
-                                <div class="flex items-center  mr-8 ">
-                                    <input id="inline-2-radio" type="radio" value="" name="inline-radio-group" onclick="document.location.href='wificorporate.php'" class=" space-y-4 w-4 h-4 text-pink-600 bg-gray-100 border-gray-300 focus:ring-pink-500 dark:focus:ring-pink-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                    <label for="inline-2-radio" class=" space-y-4 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300 ">Corporate office</label>
-                                </div>
-                            </div>
-             -->
+                            <div class="flex-col space-y-2">
              <div>
-                                <label for="facility" class="block mb-2 text-sm font-medium text-gray-900 ">Facility Name
+                                <label for="state" class="block mb-1 mt-1 text-sm font-medium text-gray-900 ">State Name
+                                </label>
+
+                                <input name="state" id="state"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block w-full p-2.5"
+                                    value="<?php echo $_SESSION['state']?>" readonly>
+                                </input>
+
+                            </div>
+                            <div>
+                                <label for="city" class="block mb-1 mt-1 text-sm font-medium text-gray-900 ">City Name
+                                </label>
+
+                                <input name="city" id="city"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block w-full p-2.5"
+                                    value="<?php echo $_SESSION['city']?>" readonly>
+                                </input>
+
+                            </div>
+             <div>
+                                <label for="facility" class="block mb-1 text-sm font-medium text-gray-900 ">Facility Name
                                 </label>
 
                                 <input name="facility" id="facility"
@@ -101,7 +107,7 @@ include('../include/sidebar.php');
 
                             </div>
                             <div>
-                                <label for="place" class="block mb-2 text-sm font-medium text-gray-900 ">Facility Code
+                                <label for="place" class="block mb-1 text-sm font-medium text-gray-900 ">Facility Code
                                 </label>
 
                                 <input name="branchcode" id="branch_code"
@@ -111,9 +117,7 @@ include('../include/sidebar.php');
                                 </input>
 
                             </div>
-
-                            </div>
-                                <div class="flex mt-2 mb-2">
+                                <div class="flex mt-1 mb-1">
                                 <div class="flex items-center mr-8">
                                     <input id="" type="radio" value="" name="inline-radio-groups" checked class=" first w-4 h-4 text-pink-600 bg-gray-100 border-gray-300 focus:ring-pink-500 dark:focus:ring-pink-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                                     <label for="" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Room</label>
@@ -125,7 +129,7 @@ include('../include/sidebar.php');
                             </div>
 
                             <div>
-                        <label class="block mb-2  text-sm font-medium text-gray-900 ">Tower</label>
+                        <label class="block mb-1  text-sm font-medium text-gray-900 ">Tower</label>
                         <select name="tower" onChange="getCat(this.value);" id="tower" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block w-full p-2.5 ">
                                     <option value="">Select Tower</option>
 
@@ -144,7 +148,7 @@ include('../include/sidebar.php');
                                     </div>
                                     <div >
                                 <label for="floor"
-                                    class="block mb-2 text-sm font-medium text-gray-900 ">Floor</label>
+                                    class="block mb-1 text-sm font-medium text-gray-900 ">Floor</label>
 
                                 <select name="floor" id="floor" onChange="getCat1(this.value);"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block w-full p-2.5">
@@ -155,7 +159,7 @@ include('../include/sidebar.php');
 
                             </div>
                             <div >
-                                <label for="room" class="block mb-2 text-sm font-medium text-gray-900 ">Room
+                                <label for="room" class="block mb-1 text-sm font-medium text-gray-900 ">Room
                                 </label>
 
                                 <select name="room" id="room" 
@@ -165,8 +169,8 @@ include('../include/sidebar.php');
 
                             </div>
 
-                                    <div class="mt-2" > 
-                                    <label class="block mb-2 text-sm font-medium text-gray-900 ">Password</label>
+                                    <div class="mt-1" > 
+                                    <label class="block mb-1 text-sm font-medium text-gray-900 ">Password</label>
                                     <input type="text"  name="wifipassword" readonly placeholder="Password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block w-full p-2.5" value="<?php echo $wifi ?>">                           
                                     </div>
                                     <div class="flex items-baseline justify-center ">
@@ -178,6 +182,7 @@ include('../include/sidebar.php');
                     </div>
                 </div>
             </div>
+            <div>
     </div>
 </body>
 <script>

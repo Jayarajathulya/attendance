@@ -24,12 +24,12 @@ $row = mysqli_fetch_array($result);
     <title>Document</title>
 </head>
 
-<body class="bg-zinc-100">
+<body class="items-center bg-zinc-100">
     <div>
         <?php
         include('../include/sidebar.php');
         ?>
-        <div class="items-center px-8 mx-auto lg:px-16 md:px-12 lg:py-24 bg-zinc-100">
+        <div class=" px-2 py-2 ">
             <div class="justify-center w-full mx-auto bg-white">
                 <nav class="flex py-3 border-y" aria-label="Breadcrumb">
                     <ol role="list" class="flex items-center space-x-4">
@@ -60,7 +60,7 @@ $row = mysqli_fetch_array($result);
         </div>
         <section class="">
             <div class="items-center px-8 mx-auto lg:px-16 md:px-12 bg-zinc-100">
-            <div class="text-3xl font-semibold text-center pb-4"> Office Wifi list</div>
+            <div class="text-3xl font-semibold text-center pb-4 text-sky-800"> Office Wifi list</div>
                 <div class="w-full mb-8 overflow-hidden rounded-lg shadow-lg">
                     <div class="w-full overflow-x-auto">
                         <table class="w-full border border-separate rounded-t-lg border-spacing-1">
@@ -85,7 +85,7 @@ $row = mysqli_fetch_array($result);
                                 } else {
                                     $pageno = 1;
                                 }
-                                $no_of_records_per_page = 10;
+                                $no_of_records_per_page = 7;
                                 $offset = ($pageno - 1) * $no_of_records_per_page;
 
 

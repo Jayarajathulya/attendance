@@ -12,19 +12,16 @@ if (isset($_POST['submit'])) {
     $room = $_POST['room'];
     $facility = $_POST['facility'];
     $branchcode = $_POST['branchcode'];
-    $sql = "INSERT INTO employee_details (name,department,tower,floor,room,facility,branchcode) VALUES ('$name','$department','$tower','$floor','$room','$facility','$branchcode')";
+    $sql = mysqli_query($conn,"INSERT INTO employee_details (name,department,tower,floor,room,facility,branchcode) VALUES ('$name','$department','$tower','$floor','$room','$facility','$branchcode')");
     
-    if ($result = mysqli_query($conn, $sql)) {
-        echo "<script type='text/javascript'>alert('Data inserted successfully!!');location='attendancelist.php'; </script>";
-   
-
-        // echo "$sql";
-    } 
-        else {
-            echo "<script type='text/javascript'>alert('Data inserted faild!!');location='attendancelist.php'; </script>";
-        }
     
-
+            if ($sql) {
+                // echo "<script type='text/javascript'>alert('Data inserted successfully!!');location='attendancelist.php'; </script>";
+                echo "success";
+            } else {
+                // echo "<script type='text/javascript'>alert('Error = Data inserted faild!!');location='attendancelist.php'; </script>";
+                echo "error";
+            }
 } 
 
 
@@ -84,12 +81,12 @@ if (isset($_POST['submit'])) {
    
 </head>
 
-<body class="bg-zinc-100">
+<body class="items-center bg-zinc-100">
     <?php
     include('../include/sidebar.php');
     ?>
     <div class="h-full mx-auto bg-zinc-100">
-        <div class="items-center px-8 py-12 mx-auto lg:px-16 md:px-12 lg:py-24 bg-zinc-100">
+        <div class="items-center px-2 py-2  bg-zinc-100">
             <div class="justify-center w-full mx-auto bg-white">
                 <nav class="flex py-3 border-y" aria-label="Breadcrumb">
                     <ol role="list" class="flex items-center space-x-4">
@@ -119,7 +116,7 @@ if (isset($_POST['submit'])) {
             </div>
             <div class="relative flex flex-col justify-center overflow-hidden antialiased text-gray-800 sm:py-12">
                 <div class="relative py-3 mx-auto text-center sm:w-96">
-                    <span class="text-2xl font-semibold"> Attendance Registration</span>
+                    <span class="text-3xl font-semibold text-center pb-4 text-sky-800"> Attendance Registration</span>
                     <div class="mt-4 text-left bg-white rounded-lg shadow-xl">
                         <div class="h-2 bg-pink-400 rounded-t-md"></div>
                         <div class="px-8 py-7">
@@ -132,7 +129,7 @@ if (isset($_POST['submit'])) {
                                     <label for="department" class="block mb-2 text-sm font-medium text-gray-900 ">Department
                                     </label>
 
-                                    <select name="department" value="<?php echo $rw['departmentname']; ?>" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block w-full p-2.5 ">
+                                    <select name="department"  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block w-full p-2.5 ">
                                     <option value="">Select Department</option>
 
                                         <?php $sql = mysqli_query($conn, "select departmentname from masterdepartment");
@@ -173,7 +170,7 @@ if (isset($_POST['submit'])) {
                                 <label for="floor"
                                     class="block mb-2 text-sm font-medium text-gray-900 ">Floor</label>
 
-                                <select name="floor" id="floor" onChange="getCat1(this.value);"
+                                <select name="floor" id="floor" onChange="getCat1(this.value);" 
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block w-full p-2.5">
                                     <option value="">Select Subcategory</option>
                                 </select>
@@ -185,7 +182,7 @@ if (isset($_POST['submit'])) {
                                 <label for="room" class="block mb-2 text-sm font-medium text-gray-900 ">Room
                                 </label>
 
-                                <select name="room" id="room" 
+                                <select name="room" id="room"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block w-full p-2.5">
                                     <option value="">Select Subcategory</option>
                                 </select>

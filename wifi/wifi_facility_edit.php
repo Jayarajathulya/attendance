@@ -41,7 +41,7 @@ if(isset($_POST['update']))
     <div
         class="relative flex flex-col justify-center w-full h-full py-6 overflow-hidden antialiased text-gray-800 sm:py-12">
         <div class="relative py-3 mx-auto text-center sm:w-96">
-            <span class="text-2xl font-semibold">Facility Edit Wi-fi</span>
+            <span class="text-3xl font-semibold text-center pb-4 text-sky-800">Facility Edit Wi-fi</span>
             <div class="mt-4 text-left bg-white rounded-lg shadow-xl">
                 <div  class="h-2 bg-pink-400 rounded-t-md"></div>
                 <div class="px-8 py-7 ">

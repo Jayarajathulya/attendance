@@ -35,11 +35,11 @@ if (isset($_POST['add'])) {
    
 </head>
 
-<body class="bg-zinc-100">
+<body class="items-center bg-zinc-100">
     <?php
     include('../include/sidebar.php');
 ?>    
-    <div class="items-center px-8 mx-auto lg:px-16 md:px-12 lg:py-12 bg-zinc-100">
+    <div class="py-2 px-2">
             <div class="justify-center w-full mx-auto bg-white">
                 <nav class="flex py-3 border-y" aria-label="Breadcrumb">
                     <ol role="list" class="flex items-center space-x-4">

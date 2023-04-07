@@ -6,8 +6,10 @@ if (isset($_POST['add'])) {
     $tower = $_POST['tower'];
     $floor = $_POST['floor'];
     $room = $_POST['room'];
+    $facility = $_POST['facility'];
+    $facility_code = $_POST['facility_code'];
 
-    $sql = "INSERT INTO `masterfacility` (tower,floor,room) VALUES ('$tower','$floor','$room')";
+    $sql = "INSERT INTO `masterfacility` (tower,floor,room,facility,facility_code) VALUES ('$tower','$floor','$room','$facility','$facility_code')";
 
          
     if ($result = mysqli_query($conn, $sql)) {
@@ -37,11 +39,11 @@ if (isset($_POST['add'])) {
    
 </head>
 
-<body class="bg-zinc-100">
+<body class="items-center bg-zinc-100">
     <?php
     include('../include/sidebar.php');
 ?>    
-    <div class="items-center px-8 mx-auto lg:px-16 md:px-12 lg:py-12 bg-zinc-100">
+    <div class="px-2 py-2">
             <div class="justify-center w-full mx-auto bg-white">
                 <nav class="flex py-3 border-y" aria-label="Breadcrumb">
                     <ol role="list" class="flex items-center space-x-4">
@@ -88,6 +90,14 @@ if (isset($_POST['add'])) {
                         <div>
                         <label class="block mb-2 mt-2 text-sm font-medium text-gray-900 ">Room</label>
                         <input type="Text" name="room" required  placeholder="Enter The Room" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block w-full p-2.5">
+                        </div>
+                        <div>
+                        <label class="block mb-2 mt-2 text-sm font-medium text-gray-900 ">Facility</label>
+                        <input type="Text" name="facility" required  placeholder="Enter The facility" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block w-full p-2.5">
+                        </div>
+                        <div>
+                        <label class="block mb-2 mt-2 text-sm font-medium text-gray-900 ">Facility code</label>
+                        <input type="Text" name="facility_code" required  placeholder="Enter The Facility code" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block w-full p-2.5">
                         </div>
                         <div class="flex items-baseline justify-center ">
                                 <button type="submit" name="add" class="px-6 py-2 mt-4 text-white bg-pink-500 rounded-md hover:bg-pink-600 ">Add Details</button>
