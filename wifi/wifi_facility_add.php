@@ -6,12 +6,21 @@ if(isset($_POST['add'])){
     $floor = $_POST['floor'];
     $roomno =$_POST['roomno'];
     $tower =$_POST['tower'];
+    $wifiname = $_POST['wifiname'];
     $wifipassword = $_POST['wifipassword'];
+    $state = $_POST['state'];
+    $city = $_POST['city'];
     $facility = $_POST['facility'];
     $branchcode = $_POST['branchcode'];
-    $sql = "INSERT INTO wifi1 (floor,roomno,tower,wifipassword,facility,branchcode) VALUES ('$floor','$roomno','$tower','$wifipassword','$facility','$branchcode')";
+    $sql = "INSERT INTO wifi1 (floor,roomno,tower,wifiname,wifipassword,state,city,facility,branchcode) VALUES ('$floor','$roomno','$tower','$wifiname','$wifipassword','$state','$city','$facility','$branchcode')";
     $result = mysqli_query($conn,$sql);
-    header('location:wifi_facility_list.php');
+    
+    if ($result) {
+        echo "<script type='text/javascript'>alert('Data inserted successfully!!');location='wifi_facility_list.php'; </script>";
+
+     } else {
+        echo "<script type='text/javascript'>alert('Error = Data inserted faild!!');location='wifi_facility_list.php'; </script>";
+     }
 }
 ?>
 <!DOCTYPE html>
@@ -60,8 +69,8 @@ if(isset($_POST['add'])){
                 </div>
   
     <div
-        class="relative flex flex-col justify-center w-full h-full py-6 mb-14 overflow-hidden antialiased text-gray-800 sm:py-12">
-        <div class="relative py-3 mx-auto text-center sm:w-96">
+        class="relative flex flex-col justify-center w-full h-full py-2  overflow-hidden antialiased text-gray-800 ">
+        <div class="relative  mx-auto text-center sm:w-96">
             <span class="text-3xl font-semibold text-center pb-4 text-sky-800">Facility Add wifi</span>
             <div class="mt-4 text-left bg-white rounded-lg shadow-xl">
                 <div class="h-2 bg-pink-400 rounded-t-md"></div>
@@ -77,12 +86,34 @@ if(isset($_POST['add'])){
                             <label class="block mb-2 text-sm font-medium text-gray-900 " >Tower Name</label>
                         <input type="Text" name="tower" placeholder="Tower"
                             class="bg-gray-50 border border-gray-300 text-gray-900 mb-2 text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block w-full p-2.5" required>
+                            <label class="block mb-2 text-sm font-medium text-gray-900 " >Wifi Name</label>
+                        <input type="Text" name="wifiname" placeholder="wifi Name"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 mb-2 text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block w-full p-2.5" required>
                             <label class="block mb-2 text-sm font-medium text-gray-900 ">Wifi Password</label>
                         <input type="Text" name="wifipassword" placeholder="Password" required
                             class="bg-gray-50 border border-gray-300 text-gray-900 mb-2 text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block w-full p-2.5" required>
-
                             <div>
-                                <label for="facility" class="block mb-2 text-sm font-medium text-gray-900 ">Facility Name
+                                <label for="state" class="block mb-2 mt-2 text-sm font-medium text-gray-900 ">State Name
+                                </label>
+
+                            <input name="state" id="state"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block w-full p-2.5"
+                                    value="<?php echo $_SESSION['state']?>" readonly>
+                                </input>
+
+                            </div>
+                            <div>
+                                <label for="city" class="block mb-2 mt-2 text-sm font-medium text-gray-900 ">City Name
+                                </label>
+
+                                <input name="city" id="city"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block w-full p-2.5"
+                                    value="<?php echo $_SESSION['city']?>" readonly>
+                                </input>
+
+                            </div>
+                            <div>
+                                <label for="facility" class="block mb-2 mt-2 text-sm font-medium text-gray-900 ">Facility Name
                                 </label>
 
                                 <input name="facility" id="facility"
@@ -92,7 +123,7 @@ if(isset($_POST['add'])){
 
                             </div>
                             <div>
-                                <label for="place" class="block mb-2 text-sm font-medium text-gray-900 ">Facility Code
+                                <label for="place" class="block mb-2 mt-2 text-sm font-medium text-gray-900 ">Facility Code
                                 </label>
 
                                 <input name="branchcode" id="branch_code"

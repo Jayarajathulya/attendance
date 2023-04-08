@@ -28,10 +28,15 @@ if ($total == $ThisDate) {
             $name = $_POST['name'][$i];
             $departmentname = $_POST['departmentname'][$i];
             $tower = $_POST['tower'][$i];
+            $floor = $_POST['floor'][$i];
+            $room = $_POST['room'][$i];
             $date = $_POST['date'][$i];
             $attendance = $_POST['attendance'][$i];
+            $state = $_POST['state'][$i];
+            $city = $_POST['city'][$i];
+            $facility = $_POST['facility'][$i];
             $branchcode = $_POST['branchcode'][$i];
-                $sql = "INSERT INTO `attendance_taken`(`id`, `name`,`departmentname`,`branchcode`, `tower`,`date`, `attendance`) VALUES ('$id','$name','$departmentname','$branchcode','$tower','$date','$attendance')";
+                $sql = "INSERT INTO `attendance_taken`(`id`,`name`,`departmentname`,`tower`,`floor`,`room`,`state`,`city`,`facility`,`branchcode`,`date`,`attendance`) VALUES ('$id','$name','$departmentname','$tower','$floor','$room','$state','$city','$facility','$branchcode','$date','$attendance')";
                 $result = mysqli_query($conn, $sql);
                 $sql = rtrim($sql, ",");
                 header("Location:todayreport.php");
@@ -88,17 +93,19 @@ if ($total == $ThisDate) {
                 <div class="text-3xl font-semibold text-center pb-4 text-sky-800"> Facility Attendance </div>
                     <div class="w-full mb-8 overflow-hidden bg-white rounded-lg shadow-lg">
                     
-                        <div class="w-full overflow-x-auto">
-                            <table class="w-full border border-separate rounded-t-lg border-spacing-1">
+                        <div class="w-full ">
+                            <table class="w-full border border-separate rounded-t-lg border-spacing-1 overflow-x-auto">
                                 <thead class="p-6">
                                     <tr class="font-semibold tracking-wide text-left text-white uppercase bg-pink-600 border-b border-gray-500 text-md">
                                         <th class="px-4 py-3 whitespace-nowrap ">ID</th>
                                         <th class="px-4 py-3 whitespace-nowrap ">NAME</th>
                                         <th class="px-4 py-3 whitespace-nowrap ">DEPARTMENT</th>
                                         <th class="px-4 py-3 whitespace-nowrap ">TOWER NAME</th>
+                                        <th class="px-4 py-3 whitespace-nowrap ">FLOOR</th>
+                                        <th class="px-4 py-3 whitespace-nowrap ">ROOM</th>
                                         <th class="px-4 py-3 whitespace-nowrap ">STATE</th>
-                                        <!-- <th class="px-4 py-3 whitespace-nowrap ">CITY</th> -->
-                                        <!-- <th class="px-4 py-3 whitespace-nowrap ">Facility</th> -->
+                                        <th class="px-4 py-3 whitespace-nowrap ">CITY</th>
+                                        <th class="px-4 py-3 whitespace-nowrap ">Facility</th>
                                         <th class="px-4 py-3 whitespace-nowrap ">BRANCH CODE</th>
                                         <th class="px-4 py-3 whitespace-nowrap ">ACTION</th>
                                     </tr>
@@ -112,7 +119,7 @@ if ($total == $ThisDate) {
                                     } else {
                                         $pageno = 1;
                                     }
-                                    $no_of_records_per_page = 7;
+                                    $no_of_records_per_page = 10;
                                     $offset = ($pageno - 1) * $no_of_records_per_page;
 
                                     $total_pages_sql = "SELECT COUNT(*) FROM employee_details WHERE branchcode ='" . $_SESSION['branchcode'] . "'";
@@ -133,28 +140,37 @@ if ($total == $ThisDate) {
                                             <input type="hidden" value="<?php echo $post['empid']; ?>" name="empid[]" />
                                             <input type="hidden" value="<?php echo $post['name']; ?>" name="name[]" />
                                             <input type="hidden" value="<?php echo $post['department']; ?>" name="departmentname[]" />
-                                            <input type="hidden" value="<?php echo $post['branchcode']; ?>" name="branchcode[]" />
                                             <input type="hidden" value="<?php echo $post['tower']; ?>" name="tower[]" />
+                                            <input type="hidden" value="<?php echo $post['floor']; ?>" name="floor[]" />
+                                            <input type="hidden" value="<?php echo $post['room']; ?>" name="room[]" />
+                                            <input type="hidden" value="<?php echo $post['state']; ?>" name="state[]" />
+                                            <input type="hidden" value="<?php echo $post['city']; ?>" name="city[]" />
+                                            <input type="hidden" value="<?php echo $post['facility']; ?>" name="facility[]" />
+                                            <input type="hidden" value="<?php echo $post['branchcode']; ?>" name="branchcode[]" />
+                                           
                                             <tr class="bg-white border-b border-separate hover:bg-sky-100 ">
                                                 <td class="border-r border-b px-6 py-4 border-slate-400 ...">
                                                     <?php echo $post['id']; ?>
                                                 </td>
-                                                <td class="border-r border-b px-6 py-4 border-slate-400   ...">
+                                                <td class="border-r border-b px-6 py-4 whitespace-nowrap border-slate-400   ...">
                                                     <?php echo $post['name']; ?></td>
-                                                <td class="border-r border-b px-6 py-4 border-slate-400 ...">
+                                                <td class="border-r border-b px-6 py-4 whitespace-nowrap border-slate-400 ...">
                                                     <?php echo $post['department']; ?></td>
                                                 <td class="border-r border-b px-6 py-4 border-slate-400 ...">
                                                     <?php echo $post['tower']; ?></td>
+                                                    <td class="border-r border-b px-6 py-4 border-slate-400 ...">
+                                                    <?php echo $post['floor']; ?></td>
+                                                    <td class="border-r border-b px-6 py-4 border-slate-400 ...">
+                                                    <?php echo $post['room']; ?></td>
                                                 <td class="border-r border-b px-6 py-4 border-slate-400 ...">
                                                     <?php echo $post['state']; ?></td>
-                                                <td class="border-r border-b px-6 py-4 border-slate-400 ...">
+                                                    <td class="border-r border-b px-6 py-4 border-slate-400 ...">
+                                                    <?php echo $post['city']; ?></td>
+                                                    <td class="border-r border-b px-6 py-4 border-slate-400 ...">
+                                                    <?php echo $post['facility']; ?></td>
+                                                <td class="border-r border-b px-6 py-4 whitespace-nowrap border-slate-400 ...">
                                                     <?php echo $post['branchcode']; ?></td>
-                                                <!-- <td class="border-r border-b px-6 py-4 border-slate-400 ...">
-                                    <?php echo $post['city']; ?></td>
-                                    <td class="border-r border-b px-6 py-4 border-slate-400 ...">
-                                    <?php echo $post['facility']; ?></td> -->
-                                                <?php echo "<td class='border-r border-b px-6 py-4 border-slate-400 ...'><label><input type='radio' id='mycode' name='attendance[$counter]' value='Absent' class='accent-red-600'>Absent &nbsp &nbsp &nbsp &nbsp </label>
-                            <label><input type='radio' name='attendance[$counter]' id='mycode1' value='Off'>Off</label></td>" ?>
+                                                <?php echo "<td class='border-r border-b px-6 py-4 whitespace-nowrap border-slate-400 ...'><label><input type='radio' id='mycode' name='attendance[$counter]' value='Absent' class='accent-red-600'>Absent &nbsp  </label><label><input type='radio' name='attendance[$counter]' id='mycode1' value='Off'>Off</label></td>" ?>
                                             </tr>
                                             <!-- function for today's date -->
                                             <?php

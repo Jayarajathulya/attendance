@@ -126,18 +126,20 @@ session_start();
             <span class="text-3xl font-semibold text-center pb-4 text-sky-800">Intercom Details</span>
         </div>
 
-        <div class="content-center mr-80 ml-80">
+        <div class="px-36">
             <div class="grid grid-cols-1 gap-4 ">
                 <table id="customersTable" class="text-sm text-left border-b text-black  border-collapse border border-slate-400 display cell-border  hover nowrap order-column  row-border stripe  dt[-head|-body]-right...">
                     <thead class="text-xs uppercase text-gray-50 bg-sky-900 ">
                         <tr>
                             <th scope="col" class="w-6 border-r px-6 py-4 border-slate-400 ...">id</th>
+                            <th scope="col" class="w-6 border-r px-6 py-4 border-slate-400 ...">tower name</th>
                             <th scope="col" class="border-r px-6 py-4 border-slate-400 ...">floor</th>
                             <th scope="col" class="border-r px-6 py-4 border-slate-400 ...">roomno</th>
-                            <th scope="col" class="border-r px-6 py-4 border-slate-400 ...">tower name</th>
                             <th scope="col" class="border-r px-6 py-4 border-slate-400 ...">phone</th>
-                            <th scope="col" class="border-r px-6 py-4 border-slate-400 ...">facilityname</th>
-                            <th scope="col" class="border-r px-6 py-4 border-slate-400 ...">facilitycode</th>
+                            <th scope="col" class="border-r px-6 py-4 border-slate-400 ...">state</th>
+                            <th scope="col" class="border-r px-6 py-4 border-slate-400 ...">city</th>
+                            <th scope="col" class="border-r px-6 py-4 border-slate-400 ...">facility name</th>
+                            <th scope="col" class="border-r px-6 py-4 border-slate-400 ...">facility code</th>
                         </tr>
                     </thead>
                 </table>
@@ -156,16 +158,22 @@ session_start();
                             data: "id"
                         },
                         {
+                            data: "tower"
+                        },
+                        {
                             data: "floor"
                         },
                         {
                             data: "roomno"
                         },
                         {
-                            data: "tower"
+                            data: "phone"
                         },
                         {
-                            data: "phone"
+                            data: "state"
+                        },
+                        {
+                            data: "city"
                         },
                         {
                             data: "branchname"

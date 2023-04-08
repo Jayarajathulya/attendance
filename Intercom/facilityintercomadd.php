@@ -8,11 +8,13 @@ if (isset($_POST['add'])) {
     $room = $_POST['room'];
     $tower = $_POST['tower'];    
     $phone = $_POST['phone'];
+    $state = $_POST['state'];
+    $city = $_POST['city'];
     $branchname = $_POST['branchname'];
     $branchcode = $_POST['branchcode'];
 
 
-    $sql = "INSERT INTO `intercom` (floor,roomno,tower,phone,branchname,branchcode) VALUES (' $floor','$room', '$tower','$phone','$branchname','$branchcode')";
+    $sql = "INSERT INTO `intercom` (floor,roomno,tower,phone,state,city,branchname,branchcode) VALUES (' $floor','$room', '$tower','$phone','$state','$city','$branchname','$branchcode')";
 
     
     if ($result = mysqli_query($conn, $sql)) {
@@ -129,6 +131,26 @@ if (isset($_POST['add'])) {
                            
                         <label class="block mb-2 mt-2 text-sm font-medium text-gray-900 ">Phone</label>
                         <input type="Text" name="phone" required placeholder="Phone" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block w-full p-2.5">
+                        <div>
+                                <label for="state" class="block mb-2 mt-2 text-sm font-medium text-gray-900 ">State Name
+                                </label>
+
+                            <input name="state" id="state"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block w-full p-2.5"
+                                    value="<?php echo $_SESSION['state']?>" readonly>
+                                </input>
+
+                            </div>
+                            <div>
+                                <label for="city" class="block mb-2 mt-2 text-sm font-medium text-gray-900 ">City Name
+                                </label>
+
+                                <input name="city" id="city"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block w-full p-2.5"
+                                    value="<?php echo $_SESSION['city']?>" readonly>
+                                </input>
+
+                            </div>
                         <div>
                             <label for="facility" class="block mb-2 mt-2 text-sm font-medium text-gray-900 ">Branch Name
                             </label>

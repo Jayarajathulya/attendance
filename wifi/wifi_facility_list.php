@@ -67,10 +67,13 @@ $row = mysqli_fetch_array($result);
                             <thead>
                                 <tr class="font-semibold tracking-wide text-left text-white uppercase bg-pink-600 border-b border-gray-500 text-md">
                                     <th class="px-4 py-3 whitespace-nowrap ">ID</th>
+                                    <th class="px-4 py-3 whitespace-nowrap ">TOWER NAME</th>
                                     <th class="px-4 py-3 whitespace-nowrap ">FLOOR</th>
                                     <th class="px-4 py-3 whitespace-nowrap ">ROOMNO</th>
-                                    <th class="px-4 py-3 whitespace-nowrap ">TOWER NAME</th>
-                                    <th class="px-4 py-3 whitespace-nowrap ">PASSWORD</th>
+                                    <th class="px-4 py-3 whitespace-nowrap ">wifi name</th>
+                                    <th class="px-4 py-3 whitespace-nowrap ">wifi PASSWORD</th>
+                                    <th class="px-4 py-3 whitespace-nowrap ">state</th>  
+                                    <th class="px-4 py-3 whitespace-nowrap ">city</th>  
                                     <th class="px-4 py-3 whitespace-nowrap ">Facility NAME</th>    
                                     <th class="px-4 py-3 whitespace-nowrap ">Facility CODE</th>
                                     <th class="px-4 py-3 whitespace-nowrap ">ACTION</th>
@@ -112,8 +115,14 @@ $row = mysqli_fetch_array($result);
                                                 <?php echo $post['roomno']; ?></td>
                                                 <td class="px-6 py-4 border-b border-r border-slate-400">
                                                 <?php echo $post['tower']; ?></td>
+                                                <td class="px-6 py-4 border-b border-r border-slate-400">
+                                                <?php echo $post['wifiname']; ?></td>
                                             <td class="px-6 py-4 border-b border-r border-slate-400">
                                                 <?php echo $post['wifipassword']; ?></td>
+                                                <td class="px-6 py-4 border-b border-r border-slate-400">
+                                                <?php echo $post['state']; ?></td>
+                                                <td class="px-6 py-4 border-b border-r border-slate-400">
+                                                <?php echo $post['city']; ?></td>
                                             <td class="px-6 py-4 border-b border-r border-slate-400">
                                                 <?php echo $post['facility']; ?></td>
                                             <td class="px-6 py-4 border-b border-r border-slate-400">

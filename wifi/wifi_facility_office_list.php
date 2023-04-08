@@ -67,10 +67,12 @@ $row = mysqli_fetch_array($result);
                             <thead>
                                 <tr class="font-semibold tracking-wide text-left text-white uppercase bg-pink-600 border-b border-gray-500 text-md">
                                     <th class="px-4 py-3 whitespace-nowrap ">ID</th>
-                                    <th class="px-4 py-3 whitespace-nowrap ">FLOOR</th>
-                                    <th class="px-4 py-3 whitespace-nowrap ">PLACE</th>
                                     <th class="px-4 py-3 whitespace-nowrap ">TOWER</th>
+                                    <th class="px-4 py-3 whitespace-nowrap ">FLOOR</th>
+                                    <th class="px-4 py-3 whitespace-nowrap ">PLACE</th> 
                                     <th class="px-4 py-3 whitespace-nowrap ">PASSWORD</th>
+                                    <th class="px-4 py-3 whitespace-nowrap ">state</th>    
+                                    <th class="px-4 py-3 whitespace-nowrap ">city</th>
                                     <th class="px-4 py-3 whitespace-nowrap ">Facility NAME</th>    
                                     <th class="px-4 py-3 whitespace-nowrap ">Facility CODE</th>
                                     <th class="px-4 py-3 whitespace-nowrap ">ACTION</th>
@@ -107,13 +109,18 @@ $row = mysqli_fetch_array($result);
                                             <td class="px-6 py-4 border-b border-r border-slate-400"><?php echo $post['id']; ?>
                                             </td>
                                             <td class="px-6 py-4 border-b border-r border-slate-400">
+                                                <?php echo $post['tower']; ?></td>
+                                            <td class="px-6 py-4 border-b border-r border-slate-400">
                                                 <?php echo $post['floor']; ?></td>
                                             <td class="px-6 py-4 border-b border-r border-slate-400">
                                                 <?php echo $post['place']; ?></td>
-                                                <td class="px-6 py-4 border-b border-r border-slate-400">
-                                                <?php echo $post['tower']; ?></td>
+                                                
                                             <td class="px-6 py-4 border-b border-r border-slate-400">
                                                 <?php echo $post['wifipassword']; ?></td>
+                                                <td class="px-6 py-4 border-b border-r border-slate-400">
+                                                <?php echo $post['state']; ?></td>
+                                                <td class="px-6 py-4 border-b border-r border-slate-400">
+                                                <?php echo $post['city']; ?></td>
                                             <td class="px-6 py-4 border-b border-r border-slate-400">
                                                 <?php echo $post['branch']; ?></td>
                                             <td class="px-6 py-4 border-b border-r border-slate-400">

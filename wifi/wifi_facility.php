@@ -78,8 +78,7 @@ include('../include/sidebar.php');
                             <div class="flex-col space-y-2">
              <div>
                                 <label for="state" class="block mb-1 mt-1 text-sm font-medium text-gray-900 ">State Name
-                                </label>
-
+                                </label>    
                                 <input name="state" id="state"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block w-full p-2.5"
                                     value="<?php echo $_SESSION['state']?>" readonly>

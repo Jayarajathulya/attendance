@@ -5,19 +5,37 @@ include('../include/config.php');
 if (isset($_POST['add'])) {
     $department = $_POST['department'];
 
-    $sql = "INSERT INTO `masterdepartment` (departmentname) VALUES ('$department')";
+    // $sql = "INSERT INTO `masterdepartment` (departmentname) VALUES ('$department')";
 
         
-    if ($result = mysqli_query($conn, $sql)) {
-        echo "<script type='text/javascript'>alert('Data Inserted successfully!!');location='masterdepartment.php'; </script>";
+    // if (($result = mysqli_query($conn, $sql)) ) {
+    //     echo "<script type='text/javascript'>alert('Data Inserted successfully!!');location='masterdepartment.php'; </script>";
     
     
-        // echo "$sql";
-    } else {
-        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-    }
+    //     // echo "$sql";
+    // } else {
+    //        echo "<script type='text/javascript'>alert('Data Insertion failed!!');location='masterdepartment.php'; </script>";
+    // }
     
     
+$sql="select * from masterdepartment where departmentname='$department' ;";
+
+$res=mysqli_query($conn,$sql);
+
+if (mysqli_num_rows($res) > 0) {
+  
+  $row = mysqli_fetch_assoc($res);
+  if($department==isset($row['departmentname']))
+  {
+    echo "<script type='text/javascript'>alert('Data Already Exists!!');location='masterdepartment.php'; </script>";
+  }
+  }
+else{
+//do your insert code here or do something (run your code)
+$sql = "INSERT INTO masterdepartment (departmentname) VALUES ('$department')";
+$res=mysqli_query($conn,$sql);
+echo "<script type='text/javascript'>alert('Data Inserted successfully!!');location='masterdepartment.php'; </script>";
+}
  
 }
 
@@ -70,7 +88,7 @@ if (isset($_POST['add'])) {
         </div>
     
         <div class="relative py-3 mx-auto text-center sm:w-96">
-            <span class="text-2xl font-semibold ">Facility Add Department</span>
+            <span class="text-3xl font-semibold text-center pb-4 text-sky-800">Facility Add Department</span>
             <div class="mt-4 text-left bg-white rounded-lg shadow-xl">
                 <div class="h-2 bg-pink-400 rounded-t-md"></div>
                 <div class="px-8 py-7 ">

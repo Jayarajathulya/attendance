@@ -10,17 +10,18 @@ if (isset($_POST['submit'])) {
     $tower = $_POST['tower'];
     $floor = $_POST['floor'];
     $room = $_POST['room'];
+    $state = $_POST['state'];
+    $city = $_POST['city'];
     $facility = $_POST['facility'];
     $branchcode = $_POST['branchcode'];
-    $sql = mysqli_query($conn,"INSERT INTO employee_details (name,department,tower,floor,room,facility,branchcode) VALUES ('$name','$department','$tower','$floor','$room','$facility','$branchcode')");
+    $sql = mysqli_query($conn,"INSERT INTO employee_details (name,department,tower,floor,room,state,city,facility,branchcode) VALUES ('$name','$department','$tower','$floor','$room','$state','$city','$facility','$branchcode')");
     
     
             if ($sql) {
-                // echo "<script type='text/javascript'>alert('Data inserted successfully!!');location='attendancelist.php'; </script>";
-                echo "success";
+               echo "<script type='text/javascript'>alert('Data inserted successfully!!');location='attendancelist.php'; </script>";
+
             } else {
-                // echo "<script type='text/javascript'>alert('Error = Data inserted faild!!');location='attendancelist.php'; </script>";
-                echo "error";
+               echo "<script type='text/javascript'>alert('Error = Data inserted faild!!');location='attendancelist.php'; </script>";
             }
 } 
 
@@ -114,12 +115,12 @@ if (isset($_POST['submit'])) {
                     </ol>
                 </nav>
             </div>
-            <div class="relative flex flex-col justify-center overflow-hidden antialiased text-gray-800 sm:py-12">
-                <div class="relative py-3 mx-auto text-center sm:w-96">
+            <div class="relative flex flex-col justify-center overflow-hidden antialiased text-gray-800 ">
+                <div class="relative  mx-auto text-center sm:w-96">
                     <span class="text-3xl font-semibold text-center pb-4 text-sky-800"> Attendance Registration</span>
                     <div class="mt-4 text-left bg-white rounded-lg shadow-xl">
                         <div class="h-2 bg-pink-400 rounded-t-md"></div>
-                        <div class="px-8 py-7">
+                        <div class="px-8 py-3">
                             <form action="" method="post">
                                 <input type="hidden" name="id">
 
@@ -188,8 +189,26 @@ if (isset($_POST['submit'])) {
                                 </select>
 
                             </div>
+                            <div>
+                                <label for="state" class="block mb-1 mt-1 text-sm font-medium text-gray-900 ">State Name
+                                </label>
 
-                          
+                            <input name="state" id="state"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block w-full p-2.5"
+                                    value="<?php echo $_SESSION['state']?>" readonly>
+                                </input>
+
+                            </div>
+                            <div>
+                                <label for="city" class="block mb-1 mt-1 text-sm font-medium text-gray-900 ">City Name
+                                </label>
+
+                                <input name="city" id="city"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block w-full p-2.5"
+                                    value="<?php echo $_SESSION['city']?>" readonly>
+                                </input>
+
+                            </div>
                                 <div>
                                     <label for="facility" class="block mb-2 mt-2 text-sm font-medium text-gray-900 ">Branch Name
                                     </label>

@@ -22,7 +22,7 @@ include('../include/sidebar.php');?>
 
 <body>
 <div class="h-full mx-auto bg-zinc-100">
-        <div class="items-center px-8 py-12 mx-auto lg:px-16 md:px-12 lg:py-24 bg-zinc-100">
+        <div class=" px-2 py-2 ">
 <div class="justify-center w-full mx-auto bg-white">
                 <nav class="flex py-3 border-y" aria-label="Breadcrumb">
                     <ol role="list" class="flex items-center space-x-4">
@@ -56,9 +56,9 @@ include('../include/sidebar.php');?>
             class="relative flex flex-col justify-center w-full h-full py-6 overflow-hidden antialiased text-gray-800 sm:py-12">
             <div class="relative py-3 mx-auto text-center ">
 
-                <div class="text-2xl font-semibold">Today Attendance</div>
+                <div  class="text-3xl font-semibold text-center pb-4 text-sky-800">Today Attendance</div>
             </div>
-
+<div class="px-20 py-30">
             <div class="relative shadow-md sm:rounded-lg grid gap-8 grid-row-2">
                 <table  class=" text-left text-gray-500 dark:text-gray-400 border-collapse border border-slate-400 ...">
                     <thead class=" uppercase bg-pink-600 text-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -69,6 +69,9 @@ include('../include/sidebar.php');?>
                             <th scope="col" class="border-r px-6 py-4 border-slate-400 ...">Tower</th>
                             <th scope="col" class="border-r px-6 py-4 border-slate-400 ...">Floor</th>
                             <th scope="col" class="border-r px-6 py-4 border-slate-400 ...">Room</th>
+                            <th scope="col" class="border-r px-6 py-4 border-slate-400 ...">State</th>
+                            <th scope="col" class="border-r px-6 py-4 border-slate-400 ...">City</th>
+                            <th scope="col" class="border-r px-6 py-4 border-slate-400 ...">Facility</th>
                             <th scope="col" class="border-r px-6 py-4 border-slate-400 ...">Branchcode</th>
                             <th scope="col" class="border-r px-6 py-4 border-slate-400 ...">Date</th>
                             <th scope="col" class="border-r px-6 py-4 border-slate-400 ...">Attendance</th>
@@ -94,6 +97,9 @@ while($post=mysqli_fetch_assoc($record)) {
                             <td class="border-r border-b px-6 py-4 border-slate-400 ..."><?php echo $post['tower']; ?></td>
                             <td class="border-r border-b px-6 py-4 border-slate-400 ..."><?php echo $post['floor']; ?></td>
                             <td class="border-r border-b px-6 py-4 border-slate-400 ..."><?php echo $post['room']; ?></td>
+                            <td class="border-r border-b px-6 py-4 border-slate-400 ..."><?php echo $post['state']; ?></td>
+                            <td class="border-r border-b px-6 py-4 border-slate-400 ..."><?php echo $post['city']; ?></td>
+                            <td class="border-r border-b px-6 py-4 border-slate-400 ..."><?php echo $post['facility']; ?></td>
                             <td class="border-r border-b px-6 py-4 border-slate-400 ..."><?php echo $post['branchcode']; ?></td>
                             <td class="border-r border-b px-6 py-4 border-slate-400 ..."><?php echo $post['date']; ?></td>
                             <td class="border-r border-b px-6 py-4 border-slate-400 ..."><?php echo $post['attendance']; ?></td>
@@ -112,6 +118,9 @@ while($post=mysqli_fetch_assoc($record)) {
                             <th scope="col" class="border-r px-6 py-4 border-slate-400 ...">Tower</th>
                             <th scope="col" class="border-r px-6 py-4 border-slate-400 ...">Floor</th>
                             <th scope="col" class="border-r px-6 py-4 border-slate-400 ...">Room</th>
+                            <th scope="col" class="border-r px-6 py-4 border-slate-400 ...">State</th>
+                            <th scope="col" class="border-r px-6 py-4 border-slate-400 ...">City</th>
+                            <th scope="col" class="border-r px-6 py-4 border-slate-400 ...">Facility</th>
                             <th scope="col" class="border-r px-6 py-4 border-slate-400 ...">Branchcode</th>
                             <th scope="col" class="border-r px-6 py-4 border-slate-400 ...">Date</th>
                             <th scope="col" class="border-r px-6 py-4 border-slate-400 ...">Attendance</th>
@@ -137,6 +146,9 @@ while($post=mysqli_fetch_assoc($record)) {
                             <td class="border-r border-b px-6 py-4 border-slate-400 ..."><?php echo $post['tower']; ?></td>
                             <td class="border-r border-b px-6 py-4 border-slate-400 ..."><?php echo $post['floor']; ?></td>
                             <td class="border-r border-b px-6 py-4 border-slate-400 ..."><?php echo $post['room']; ?></td>
+                            <td class="border-r border-b px-6 py-4 border-slate-400 ..."><?php echo $post['state']; ?></td>
+                            <td class="border-r border-b px-6 py-4 border-slate-400 ..."><?php echo $post['city']; ?></td>
+                            <td class="border-r border-b px-6 py-4 border-slate-400 ..."><?php echo $post['facility']; ?></td>
                             <td class="border-r border-b px-6 py-4 border-slate-400 ..."><?php echo $post['branchcode']; ?></td>
                             <td class="border-r border-b px-6 py-4 border-slate-400 ..."><?php echo $post['date']; ?></td>
                             <td class="border-r border-b px-6 py-4 border-slate-400 ..."><?php echo $post['attendance']; ?></td>
@@ -147,7 +159,7 @@ while($post=mysqli_fetch_assoc($record)) {
                     </tbody>
                 </table>
             </div>
-            
+            </div> 
         </div>
         
     </div>

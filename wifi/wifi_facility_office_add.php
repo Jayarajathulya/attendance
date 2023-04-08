@@ -7,11 +7,18 @@ if(isset($_POST['add'])){
     $place =$_POST['place'];
     $tower =$_POST['tower'];
     $wifipassword = $_POST['wifipassword'];
+    $state = $_POST['state'];
+    $city = $_POST['city'];
     $branch = $_POST['branch'];
     $branchcode = $_POST['branchcode'];
-    $sql = "INSERT INTO wifi13 (floor,place,tower,wifipassword,branch,branchcode) VALUES ('$floor','$place','$tower','$wifipassword','$branch','$branchcode')";
+    $sql = "INSERT INTO wifi13 (floor,place,tower,wifipassword,state,city,branch,branchcode) VALUES ('$floor','$place','$tower','$wifipassword','$state','$city','$branch','$branchcode')";
     $result = mysqli_query($conn,$sql);
-    header('location:wifi_facility_office_list.php');
+    if ($result) {
+        echo "<script type='text/javascript'>alert('Data inserted successfully!!');location='wifi_facility_office_list.php'; </script>";
+
+     } else {
+        echo "<script type='text/javascript'>alert('Error = Data inserted faild!!');location='wifi_facility_office_list.php'; </script>";
+     }
 }
 ?>
 <!DOCTYPE html>
@@ -62,8 +69,8 @@ if(isset($_POST['add'])){
             </nav>
         </div>
         <div
-            class="relative flex flex-col justify-center w-full h-full py-6 overflow-hidden antialiased text-gray-800 sm:py-20">
-            <div class="relative py-3 mx-auto text-center sm:w-96">
+            class="relative flex flex-col justify-center w-full h-full  overflow-hidden antialiased text-gray-800 ">
+            <div class="relative py-2 mx-auto text-center sm:w-96">
                 <span class="text-3xl font-semibold text-center pb-4 text-sky-800">Office Add wifi</span>
                 <div class="mt-4 text-left bg-white rounded-lg shadow-xl">
                     <div class="h-2 bg-pink-400 rounded-t-md"></div>
@@ -99,7 +106,26 @@ if(isset($_POST['add'])){
                             <input type="Text" name="wifipassword" placeholder="Wifipassword"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block w-full p-2.5"
                                 required>
+                                <div>
+                                <label for="state" class="block mb-2 mt-2 text-sm font-medium text-gray-900 ">State Name
+                                </label>
 
+                            <input name="state" id="state"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block w-full p-2.5"
+                                    value="<?php echo $_SESSION['state']?>" readonly>
+                                </input>
+
+                            </div>
+                            <div>
+                                <label for="city" class="block mb-2 mt-2 text-sm font-medium text-gray-900 ">City Name
+                                </label>
+
+                                <input name="city" id="city"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block w-full p-2.5"
+                                    value="<?php echo $_SESSION['city']?>" readonly>
+                                </input>
+
+                            </div>
                             <div>
                                 <label for="facility" class="block mb-2 mt-2 text-sm font-medium text-gray-900 ">Facility
                                     Name

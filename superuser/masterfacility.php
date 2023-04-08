@@ -74,7 +74,7 @@ if (isset($_POST['add'])) {
         </div>
     
         <div class="relative py-3 mx-auto text-center sm:w-96">
-            <span class="text-2xl font-semibold ">Facility Add Tower</span>
+            <span class="text-3xl font-semibold text-center pb-4 text-sky-800">Facility Add Tower</span>
             <div class="mt-4 text-left bg-white rounded-lg shadow-xl">
                 <div class="h-2 bg-pink-400 rounded-t-md"></div>
                 <div class="px-8 py-7 ">
@@ -92,13 +92,26 @@ if (isset($_POST['add'])) {
                         <input type="Text" name="room" required  placeholder="Enter The Room" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block w-full p-2.5">
                         </div>
                         <div>
-                        <label class="block mb-2 mt-2 text-sm font-medium text-gray-900 ">Facility</label>
-                        <input type="Text" name="facility" required  placeholder="Enter The facility" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block w-full p-2.5">
-                        </div>
-                        <div>
-                        <label class="block mb-2 mt-2 text-sm font-medium text-gray-900 ">Facility code</label>
-                        <input type="Text" name="facility_code" required  placeholder="Enter The Facility code" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block w-full p-2.5">
-                        </div>
+                                <label for="facility" class="block mb-2 mt-2 text-sm font-medium text-gray-900 ">Facility Name
+                                </label>
+
+                                <input name="facility" id="facility"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block w-full p-2.5"
+                                    value="<?php echo $_SESSION['facility']?>" readonly>
+                                </input>
+
+                            </div>
+                            <div>
+                                <label for="place" class="block mb-2 mt-2 text-sm font-medium text-gray-900 ">Facility Code
+                                </label>
+
+                                <input name="facility_code" id="branch_code"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block w-full p-2.5"
+                                    value="<?php echo $_SESSION['branchcode']?>" readonly>
+
+                                </input>
+
+                            </div>
                         <div class="flex items-baseline justify-center ">
                                 <button type="submit" name="add" class="px-6 py-2 mt-4 text-white bg-pink-500 rounded-md hover:bg-pink-600 ">Add Details</button>
                             </div>
