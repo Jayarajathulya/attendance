@@ -150,7 +150,7 @@ $row = mysqli_fetch_array($result);
                                                         echo "?pageno=" . ($pageno - 1);
                                                     } ?>">Prev</a>
                                     </li>
-                                    <li >
+                                    <li>
                                         <a class="bg-sky-900 border border-gray-300 text-gray-100 hover:bg-gray-100 hover:text-gray-700 leading-tight py-2 px-3  <?php if ($pageno >= $total_pages) {
                                                                                                                                                                     echo 'disabled';
                                                                                                                                                                 } ?>" href="<?php if ($pageno >= $total_pages) {

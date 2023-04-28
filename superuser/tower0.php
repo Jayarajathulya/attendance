@@ -1,13 +1,12 @@
-
 <?php
 session_start();
-$conn = mysqli_connect("localhost", "root", "", "athul9z1_cms");
-
+// $conn = mysqli_connect("localhost", "root", "", "athul9z1_cms");
+include_once './include/config.php';
 
 if (!empty($_POST["branchname"])) {
-    $_SESSION['branchname'] = ($_POST['branchname']);
+    $_SESSION['facilityname'] = ($_POST['branchname']);
     
-    $stmt = mysqli_query($conn, "SELECT distinct towername FROM masterfacility WHERE branchname='". $_SESSION['branchname'] ."'");
+    $stmt = mysqli_query($conn, "SELECT distinct towername FROM masterfacility WHERE branchname='". $_SESSION['facilityname'] ."'");
 ?>
     <option value="<?php echo "select" ?>"><?php echo "Select Towername"; ?>
     </option>

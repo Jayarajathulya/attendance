@@ -50,6 +50,8 @@ include '../include/config.php';
         $(document).ready(function() {
 
             // Datapicker 
+            // ALTER TABLE attendance_taken ALTER COLUMN attendance SET DEFAULT present;
+            // alter table attendance_taken add attendance varchar(100) default 'present'
 
             $(".datepicker").datepicker({
                 "dateFormat": "dd-mm-yy",
@@ -115,8 +117,14 @@ include '../include/config.php';
                         className: 'btn '
                     }
                 ],
+                language: {
+            buttons: {
+                copyTitle: 'Copied successfully',
+              
+            }
+        },
                 drawCallback: function() {
-                    $("input[type='search']").attr("id", "searchBox").attr("placeholder", "Search...");
+                    $("input[type='search']").attr("id","searchBox").attr("placeholder","Search...");
                 }
             });
 

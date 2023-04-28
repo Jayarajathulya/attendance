@@ -1,6 +1,5 @@
 <?php
-
-$conn = mysqli_connect("localhost", "root", "", "athul9z1_cms");
+include_once './include/config.php';
 
 if (!empty($_POST["country"])) {
     $id = ($_POST['country']);

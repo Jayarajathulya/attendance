@@ -5,20 +5,20 @@ include_once './include/config.php';
 
 if (isset($_POST['submit'])) {
     $username = $_POST['username'];
-    $password =  $_POST['password'];
+    $password=md5($_POST['password']);
     if (!empty($username) || !empty($password)) {
-        $ret = mysqli_query($conn, "SELECT * FROM admin_registration WHERE username='" . $_POST['username'] . "' and password='" . $_POST['password'] . "'");
+        $ret = mysqli_query($conn, "SELECT * FROM users WHERE userEmail='$username' and password='$password'");
         $num = mysqli_fetch_array($ret);
 
-        $_SESSION['empname'] = $num['empname'];        
-        $_SESSION['state'] = $num['state'];
-        $_SESSION['city'] = $num['city'];
+        $_SESSION['empname'] = $num['fullName'];              
+        $_SESSION['state'] = $num['State'];
+        $_SESSION['city'] = $num['location'];
         $_SESSION['country'] = $num['country'];
-        $_SESSION['branchname'] = $num['branchname'];        
+        $_SESSION['branchname'] = $num['place'];        
         $_SESSION['branchcode'] = $num['branchcode'];
-        $_SESSION['role'] = $num['role'];
+        $_SESSION['role'] = $num['attendance_role'];
 
-        if ($_SESSION['role'] == 'user') {
+        if ($_SESSION['role'] == 'admin') {
             header("Location:./attendance/attendanceentry.php");
         } else {
             $errorMsg = "incorrect username or password";
@@ -93,8 +93,13 @@ if (isset($_POST['submit'])) {
                                     Login In
                                 </button>
                             </div>
-
+                            <div class="mt-6">
+                                <a href="../index.html" class="px-2 py-2 text-white bg-pink-500 rounded-md hover:bg-pink-600 ">
+                                    Home
+                                </a>
+                            </div>
                         </form>
+  
                     </div>
                 </div>
             </div>

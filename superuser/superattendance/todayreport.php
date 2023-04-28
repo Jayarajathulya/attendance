@@ -23,8 +23,8 @@ include('../include/sidebar.php');?>
 <body>
 
 <?php
-        // include('../include/superusersidebar.php')
-        ?>
+            include('../include/superusersidebar.php');
+            ?>
 <div class="h-full mx-auto bg-zinc-100">
         <div class=" px-2 py-2 ">
 <div class="justify-center w-full mx-auto bg-white">
@@ -69,11 +69,12 @@ include('../include/sidebar.php');?>
                         <tr>
                             <th scope="col" class="border-r px-6 py-4 border-slate-400 ...">Id</th>
                             <th scope="col" class="border-r px-6 py-4 border-slate-400 ...">Name</th>
-                            <th scope="col" class="border-r px-6 py-4 border-slate-400 ...">Departmentname</th>                   
+                            <th scope="col" class="border-r px-6 py-4 border-slate-400 ...">department</th>
+                         
                             <th scope="col" class="border-r px-6 py-4 border-slate-400 ...">State</th>
                             <th scope="col" class="border-r px-6 py-4 border-slate-400 ...">City</th>
                             <th scope="col" class="border-r px-6 py-4 border-slate-400 ...">Facility</th>
-                            <th scope="col" class="border-r px-6 py-4 border-slate-400 ...">Branchcode</th>
+                            <!-- <th scope="col" class="border-r px-6 py-4 border-slate-400 ...">Branchcode</th> -->
                             <th scope="col" class="border-r px-6 py-4 border-slate-400 ...">Date</th>
                             <th scope="col" class="border-r px-6 py-4 border-slate-400 ...">Attendance</th>
                         </tr>
@@ -87,18 +88,19 @@ include('../include/sidebar.php');?>
           ?>
                         <?php 
 //select database
-$sql="SELECT * FROM `attendance_taken` WHERE branchcode ='". $_SESSION['branchcode'] ."' AND  attendance LIKE '%absent%' AND date='$Today' ORDER BY id ASC ";
+$sql="SELECT * FROM `attendance_taken` WHERE    attendance LIKE '%absent%' AND date='$Today' ORDER BY id ASC ";
 $record = mysqli_query($conn,$sql);
 while($post=mysqli_fetch_assoc($record)) { 
    ?>
                         <tr>
                             <td class="border-r border-b px-6 py-4 border-slate-400 ..."><?php echo $post['id']; ?></td>
                             <td class="border-r border-b px-6 py-4 border-slate-400 ..."><?php echo $post['name']; ?></td>
-                            <td class="border-r border-b px-6 py-4 border-slate-400 ..."><?php echo $post['departmentname']; ?></td>
+                            <td class="border-r border-b px-6 py-4 border-slate-400 ..."><?php echo $post['department']; ?></td>
+          
                             <td class="border-r border-b px-6 py-4 border-slate-400 ..."><?php echo $post['state']; ?></td>
                             <td class="border-r border-b px-6 py-4 border-slate-400 ..."><?php echo $post['city']; ?></td>
-                            <td class="border-r border-b px-6 py-4 border-slate-400 ..."><?php echo $post['facility']; ?></td>
-                            <td class="border-r border-b px-6 py-4 border-slate-400 ..."><?php echo $post['branchcode']; ?></td>
+                            <td class="border-r border-b px-6 py-4 border-slate-400 ..."><?php echo $post['branchname']; ?></td>
+                            <!-- <td class="border-r border-b px-6 py-4 border-slate-400 ..."><?php echo $post['branchcode']; ?></td> -->
                             <td class="border-r border-b px-6 py-4 border-slate-400 ..."><?php echo $post['date']; ?></td>
                             <td class="border-r border-b px-6 py-4 border-slate-400 ..."><?php echo $post['attendance']; ?></td>
 
@@ -112,11 +114,12 @@ while($post=mysqli_fetch_assoc($record)) {
                         <tr>
                             <th scope="col" class="border-r px-6 py-4 border-slate-400 ...">Id</th>
                             <th scope="col" class="border-r px-6 py-4 border-slate-400 ...">Name</th>
-                            <th scope="col" class="border-r px-6 py-4 border-slate-400 ...">Departmentname</th>
+                            <th scope="col" class="border-r px-6 py-4 border-slate-400 ...">department</th>
+                
                             <th scope="col" class="border-r px-6 py-4 border-slate-400 ...">State</th>
                             <th scope="col" class="border-r px-6 py-4 border-slate-400 ...">City</th>
                             <th scope="col" class="border-r px-6 py-4 border-slate-400 ...">Facility</th>
-                            <th scope="col" class="border-r px-6 py-4 border-slate-400 ...">Branchcode</th>
+                            <!-- <th scope="col" class="border-r px-6 py-4 border-slate-400 ...">Branchcode</th> -->
                             <th scope="col" class="border-r px-6 py-4 border-slate-400 ...">Date</th>
                             <th scope="col" class="border-r px-6 py-4 border-slate-400 ...">Attendance</th>
                         </tr>
@@ -130,18 +133,19 @@ while($post=mysqli_fetch_assoc($record)) {
           ?>
                         <?php 
 //select database
-$sql="SELECT * FROM `attendance_taken` WHERE branchcode ='". $_SESSION['branchcode'] ."' AND  attendance LIKE '%off%' AND date='$Today' ORDER BY id ASC ";
+$sql="SELECT * FROM `attendance_taken` WHERE  attendance LIKE '%off%' AND date='$Today' ORDER BY id ASC ";
 $record = mysqli_query($conn,$sql);
 while($post=mysqli_fetch_assoc($record)) { 
    ?>
                         <tr>
                             <td class="border-r border-b px-6 py-4 border-slate-400 ..."><?php echo $post['id']; ?></td>
                             <td class="border-r border-b px-6 py-4 border-slate-400 ..."><?php echo $post['name']; ?></td>
-                            <td class="border-r border-b px-6 py-4 border-slate-400 ..."><?php echo $post['departmentname']; ?></td>
+                            <td class="border-r border-b px-6 py-4 border-slate-400 ..."><?php echo $post['department']; ?></td>
+                       
                             <td class="border-r border-b px-6 py-4 border-slate-400 ..."><?php echo $post['state']; ?></td>
                             <td class="border-r border-b px-6 py-4 border-slate-400 ..."><?php echo $post['city']; ?></td>
-                            <td class="border-r border-b px-6 py-4 border-slate-400 ..."><?php echo $post['facility']; ?></td>
-                            <td class="border-r border-b px-6 py-4 border-slate-400 ..."><?php echo $post['branchcode']; ?></td>
+                            <td class="border-r border-b px-6 py-4 border-slate-400 ..."><?php echo $post['branchname']; ?></td>
+                            <!-- <td class="border-r border-b px-6 py-4 border-slate-400 ..."><?php echo $post['branchcode']; ?></td> -->
                             <td class="border-r border-b px-6 py-4 border-slate-400 ..."><?php echo $post['date']; ?></td>
                             <td class="border-r border-b px-6 py-4 border-slate-400 ..."><?php echo $post['attendance']; ?></td>
 

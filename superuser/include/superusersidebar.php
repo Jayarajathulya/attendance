@@ -95,21 +95,6 @@ session_start()
                                                 <h3 class="text-xl font-medium text-pink-500">
                                                     Attendance
                                                 </h3>
-                                                <!-- <a href="../superattendance/attendanceentry.php" class="inline-flex items-start p-3 -m-3 transition duration-150 ease-in-out rounded-xl group hover:bg-white hover:text-sky-900">
-                                                    <div class="">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 text-white w-7 group-hover:text-sky-800 md hydrated" width="32" height="32" viewBox="0 0 24 24">
-                                                            <path fill="currentColor" d="M7 9h10V7H7v2Zm11 14q-2.075 0-3.538-1.463T13 18q0-2.075 1.463-3.538T18 13q2.075 0 3.538 1.463T23 18q0 2.075-1.463 3.538T18 23Zm-.5-2h1v-2.5H21v-1h-2.5V15h-1v2.5H15v1h2.5V21ZM3 21V3h18v8.7q-.725-.35-1.463-.525T18 11q-.275 0-.513.013t-.487.062V11H7v2h6.1q-.425.425-.787.925T11.675 15H7v2h4.075q-.05.25-.063.488T11 18q0 .825.15 1.538T11.675 21H3Z" />
-                                                        </svg>
-                                                    </div>
-                                                    <div class="ml-4">
-                                                        <p class="font-sans text-base font-semibold text-pink-500 ">
-                                                            Attendance Entry
-                                                        </p>
-                                                        <p class="mt-1 text-lg text-white group-hover:text-sky-800">
-                                                            ipsum reversus ab viral inferno, nam rick grimes malum cerebro.
-                                                        </p>
-                                                    </div>
-                                                </a> -->
                                                 <a href="../superattendance/attendanceregistration.php"
                                                     class="inline-flex items-start p-3 -m-3 transition duration-150 ease-in-out rounded-xl group hover:bg-white">
                                                     <div class="">
@@ -170,6 +155,36 @@ session_start()
                                                         </p>
                                                         <p class="mt-1 text-lg text-white group-hover:text-sky-800">
                                                             Interviews, tutorials and more
+                                                        </p>
+                                                    </div>
+                                                </a>
+                                                <!-- <a href="../superattendance/dailyattendance.php" class="inline-flex items-start p-3 -m-3 transition duration-150 ease-in-out rounded-xl group hover:bg-white hover:text-sky-900">
+                                                    <div class="">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 text-white w-7 group-hover:text-sky-800 md hydrated" width="32" height="32" viewBox="0 0 24 24">
+                                                            <path fill="currentColor" d="M7 9h10V7H7v2Zm11 14q-2.075 0-3.538-1.463T13 18q0-2.075 1.463-3.538T18 13q2.075 0 3.538 1.463T23 18q0 2.075-1.463 3.538T18 23Zm-.5-2h1v-2.5H21v-1h-2.5V15h-1v2.5H15v1h2.5V21ZM3 21V3h18v8.7q-.725-.35-1.463-.525T18 11q-.275 0-.513.013t-.487.062V11H7v2h6.1q-.425.425-.787.925T11.675 15H7v2h4.075q-.05.25-.063.488T11 18q0 .825.15 1.538T11.675 21H3Z" />
+                                                        </svg>
+                                                    </div>
+                                                    <div class="ml-4">
+                                                        <p class="font-sans text-base font-semibold text-pink-500 ">
+                                                            Daily Attendance List
+                                                        </p>
+                                                        <p class="mt-1 text-lg text-white group-hover:text-sky-800">
+                                                        Interviews, tutorials and more
+                                                        </p>
+                                                    </div>
+                                                </a> -->
+                                                <a href="../superattendance/attendanceentry.php" class="inline-flex items-start p-3 -m-3 transition duration-150 ease-in-out rounded-xl group hover:bg-white hover:text-sky-900">
+                                                    <div class="">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 text-white w-7 group-hover:text-sky-800 md hydrated" width="32" height="32" viewBox="0 0 24 24">
+                                                            <path fill="currentColor" d="M7 9h10V7H7v2Zm11 14q-2.075 0-3.538-1.463T13 18q0-2.075 1.463-3.538T18 13q2.075 0 3.538 1.463T23 18q0 2.075-1.463 3.538T18 23Zm-.5-2h1v-2.5H21v-1h-2.5V15h-1v2.5H15v1h2.5V21ZM3 21V3h18v8.7q-.725-.35-1.463-.525T18 11q-.275 0-.513.013t-.487.062V11H7v2h6.1q-.425.425-.787.925T11.675 15H7v2h4.075q-.05.25-.063.488T11 18q0 .825.15 1.538T11.675 21H3Z" />
+                                                        </svg>
+                                                    </div>
+                                                    <div class="ml-4">
+                                                        <p class="font-sans text-base font-semibold text-pink-500 ">
+                                                            Daily Attendance 
+                                                        </p>
+                                                        <p class="mt-1 text-lg text-white group-hover:text-sky-800">
+                                                        Interviews, tutorials and more
                                                         </p>
                                                     </div>
                                                 </a>

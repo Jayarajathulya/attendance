@@ -22,7 +22,7 @@ include_once '../include/config.php';
         $(document).ready(function () {
             $('#example').DataTable({
                 dom: 'Bfrtip',
-                pageLength: 8,
+                pageLength: 10,
                "processing": true,
             });
         });
@@ -55,7 +55,7 @@ include_once '../include/config.php';
                                     /
                                 </span>
                                 <a href="#" class="ml-4 text-sm font-medium text-pink-500 hover:scale-95 hover:text-sky-900" aria-current="page">
-                                    Attendance List
+                                    Daily Attendance 
                                 </a>
                             </div>
                         </li>
@@ -65,7 +65,7 @@ include_once '../include/config.php';
         </div>
         <section class="">
             <div class="items-center px-8 mx-auto lg:px-16 md:px-12 bg-zinc-100">
-            <div class="text-3xl font-semibold text-center pb-4 text-sky-800"> Facility Attendance list</div>
+            <div class="text-3xl font-semibold text-center pb-4 text-sky-800"> Daily Attendance</div>
                 <div class="w-full mb-8 overflow-hidden ">
                     <div class="w-full overflow-x-auto ">
                         <table id="example" class="w-full border  border-spacing-1">
@@ -78,13 +78,14 @@ include_once '../include/config.php';
                                     <th class="px-4 py-3 whitespace-nowrap ">STATE</th>
                                     <th class="px-4 py-3 whitespace-nowrap ">CITY</th>
                                     <th class="px-4 py-3 whitespace-nowrap ">Facility NAME</th>
-                                
+                                    <th class="px-4 py-3 whitespace-nowrap ">Date</th>
+                                    <th class="px-4 py-3 whitespace-nowrap ">Attendance</th>
                                     <th class="px-4 py-3 whitespace-nowrap ">ACTION</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
-                                $result ="SELECT * FROM `employee_details`";
+                                $result ="SELECT * FROM `attendance_taken`";
                                 $row = mysqli_query($conn,$result);
                              
                                 while ($post = mysqli_fetch_assoc($row)) {
@@ -95,7 +96,7 @@ include_once '../include/config.php';
                                             <td class="px-6 py-4 border-b border-r border-slate-400">
                                                 <?php echo $post['name']; ?></td>
                                             <td class="px-6 py-4 border-b border-r border-slate-400">
-                                                <?php echo $post['department']; ?><?php echo $post['department_others']; ?></td>
+                                                <?php echo $post['department']; ?></td>
                                                 <td class="px-6 py-4 border-b border-r border-slate-400">
                                                 <?php echo $post['country']; ?></td>
                                                 <td class="px-6 py-4 border-b border-r border-slate-400">
@@ -104,10 +105,13 @@ include_once '../include/config.php';
                                                 <?php echo $post['city']; ?></td>
                                             <td class="px-6 py-4 border-b border-r border-slate-400">
                                                 <?php echo $post['branchname']; ?></td>
-                                  
+                                                <td class="px-6 py-4 border-b border-r border-slate-400">
+                                                <?php echo $post['date']; ?></td>
+                                                <td class="px-6 py-4 border-b border-r border-slate-400">
+                                                <?php echo $post['attendance']; ?></td>
                                             <?php echo ("<td class='border-r border-b px-6 py-4 whitespace-nowrap  border-slate-400 ... '>
-                                <a href=\"attendanceedit.php?edit=$post[id]\" class='inline-flex items-center justify-center px-4 py-2 text-base font-medium leading-6 text-white whitespace-no-wrap border rounded-md shadow-sm border-sky-700 bg-sky-800 hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500'>Edit</a> 
-                                <a href=\"attendancedelete.php?del= $post[id]\" class='inline-flex items-center justify-center px-4 py-2 text-base font-medium leading-6 text-white whitespace-no-wrap bg-red-500 border border-red-800 rounded-md shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500'>Delete</a> </td>") ?>
+                                <a href=\"dailyattendanceedit.php?edit=$post[id]\" class='inline-flex items-center justify-center px-4 py-2 text-base font-medium leading-6 text-white whitespace-no-wrap border rounded-md shadow-sm border-sky-700 bg-sky-800 hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500'>Edit</a> 
+                                <a href=\"dailyattendancedelete.php?del= $post[id]\" class='inline-flex items-center justify-center px-4 py-2 text-base font-medium leading-6 text-white whitespace-no-wrap bg-red-500 border border-red-800 rounded-md shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500'>Delete</a> </td>") ?>
                                         </tr>
                                         <!-- function for today's date -->
                                     <?php } ?>

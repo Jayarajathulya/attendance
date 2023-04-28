@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 error_reporting(0);
@@ -65,22 +64,21 @@ include_once '../include/config.php';
             </div>
         </div>
         <section class="">
-            <div class="items-center px-8 mx-auto lg:px-16 md:px-12 bg-zinc-100">
+            <div class="items-center px-8 mx-auto lg:px-56 md:px-12 bg-zinc-100">
             <div class="text-3xl font-semibold text-center pb-4 text-sky-800"> Facility Attendance list</div>
                 <div class="w-full mb-8 overflow-hidden ">
                     <div class="w-full overflow-x-auto ">
                         <table id="example" class="w-full border  ">
                             <thead>
                                 <tr class="font-semibold tracking-wide text-left text-white uppercase bg-pink-600 border-b border-gray-500 text-md">
-                                    <th class="px-4 py-3 whitespace-nowrap ">ID</th>
-                                    <th class="px-4 py-3 whitespace-nowrap ">NAME</th>
-                                    <th class="px-4 py-3 whitespace-nowrap ">DEPARTMENT</th>
-                                    <th class="px-4 py-3 whitespace-nowrap ">Country</th>
-                                    <th class="px-4 py-3 whitespace-nowrap ">STATE</th>
-                                    <th class="px-4 py-3 whitespace-nowrap ">CITY</th>
-                                    <th class="px-4 py-3 whitespace-nowrap ">Facility NAME</th>
-                                
-                                    <th class="px-4 py-3 whitespace-nowrap ">ACTION</th>
+                                    <th class=" whitespace-nowrap ">ID</th>
+                                    <th class=" whitespace-nowrap ">NAME</th>
+                                    <th class=" whitespace-nowrap ">DEPARTMENT</th>
+                                    <th class=" whitespace-nowrap ">Country</th>
+                                    <th class=" whitespace-nowrap ">STATE</th>
+                                    <th class=" whitespace-nowrap ">CITY</th>
+                                    <th class=" whitespace-nowrap ">Facility NAME</th>
+                                    <th class=" whitespace-nowrap ">ACTION</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -90,25 +88,26 @@ include_once '../include/config.php';
                              
                                 while ($post = mysqli_fetch_assoc($row)) {
                                 ?>
-                                        <tr class="bg-white border-b hover:bg-sky-100">
-                                            <td class="px-6 py-4 border-b border-r border-slate-400"><?php echo $post['id']; ?>
+                                        <tr >
+                                            <td class="  border-b border-r border-slate-400"><?php echo $post['id']; ?>
                                             </td>
-                                            <td class="px-6 py-4 border-b border-r border-slate-400">
+                                            <td class="  border-b border-r border-slate-400">
                                                 <?php echo $post['name']; ?></td>
-                                            <td class="px-6 py-4 border-b border-r border-slate-400">
+                                            <td class="  border-b border-r border-slate-400">
                                                 <?php echo $post['department']; ?></td>
-                                                <td class="px-6 py-4 border-b border-r border-slate-400">
+                                                <td class="  border-b border-r border-slate-400">
                                                 <?php echo $post['country']; ?></td>
-                                                <td class="px-6 py-4 border-b border-r border-slate-400">
+                                                <td class="  border-b border-r border-slate-400">
                                                 <?php echo $post['state']; ?></td>
-                                            <td class="px-6 py-4 border-b border-r border-slate-400">
+                                            <td class="  border-b border-r border-slate-400">
                                                 <?php echo $post['city']; ?></td>
-                                            <td class="px-6 py-4 border-b border-r border-slate-400">
+                                            <td class="  border-b border-r border-slate-400">
                                                 <?php echo $post['branchname']; ?></td>
                                   
-                                            <?php echo ("<td class='border-r border-b px-6 py-4 whitespace-nowrap  border-slate-400 ... '>
+                                            <?php echo ("<td class='border-r border-b  whitespace-nowrap  border-slate-400 ... '><center>
                                 <a href=\"attendanceedit.php?edit=$post[id]\" class='inline-flex items-center justify-center px-4 py-2 text-base font-medium leading-6 text-white whitespace-no-wrap border rounded-md shadow-sm border-sky-700 bg-sky-800 hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500'>Edit</a> 
-                                <a href=\"attendancedelete.php?del= $post[id]\" class='inline-flex items-center justify-center px-4 py-2 text-base font-medium leading-6 text-white whitespace-no-wrap bg-red-500 border border-red-800 rounded-md shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500'>Delete</a> </td>") ?>
+                                 </center></td>") ?>
+                                 <!-- <a href=\"attendancedelete.php?del= $post[id]\" class='inline-flex items-center justify-center px-4 py-2 text-base font-medium leading-6 text-white whitespace-no-wrap bg-red-500 border border-red-800 rounded-md shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500'>Delete</a> -->
                                         </tr>
                                         <!-- function for today's date -->
                                     <?php } ?>

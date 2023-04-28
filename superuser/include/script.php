@@ -9,6 +9,7 @@ include('../include/config.php');
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="https://cdn.tailwindcss.com"></script>
         <link href="/dist/output.css" rel="stylesheet">
         <script>
@@ -165,24 +166,45 @@ $.ajax({
         });
         console.log("this");
     } 
-    // function chat3(val1) {
-    //     // alert('val');
-
-    //     $.ajax({
-    //         type: "POST",
-    //         url: "../tower5.php",
-    //         data: 'room=' + val1,
-    //         success: function(data1) {
-    //             $("#wifipassword").html(data1); 
-    //         }
-    //     });
-    //     console.log("this");
-    // }
-  
+ 
             </script>
 
-
+<script>
+    function chat3(val) {
+        $.ajax({
+            type: "POST",
+            url: "../tower4.php",
+            data: 'room=' + val,
+            success: function(data) {
+                var wifiData = JSON.parse(data);
+                $("#wifiname").val(wifiData[0]); 
+                $("#wifipassword").val(wifiData[1]); 
+                $("#intercom").val(wifiData[2]); 
+            }
+        });
+    }
+</script>
   
+<script>
+$(document).ready(function() {
+  $('#filterBtn').click(function() {
+    var date = $('#date').val();
+    var country = $('#country').val();
+    var state = $('#state').val();
+    var city = $('#city').val();
+    var branchname = $('#branchname').val();
+
+    $.ajax({
+      type: 'POST',
+      url: '../filter.php',
+      data: { date: date, country: country, state: state, city: city, branchname: branchname  },
+      success: function(response) {
+        $('#attendanceList').html(response);
+      }
+    });
+  });
+});
+</script>
 </head>
 <body>
 <script>

@@ -1,14 +1,14 @@
-
 <?php
 session_start();
-$conn = mysqli_connect("localhost", "root", "", "athul9z1_cms");
+// $conn = mysqli_connect("localhost", "root", "", "athul9z1_cms");
+include_once './include/config.php';
 
 
 if (!empty($_POST["office_client"])) {
     $id = ($_POST['office_client']);
 
 
-    $stmt = mysqli_query($conn, "SELECT distinct room FROM masterfacility WHERE office_client ='$id' AND branchname='". $_SESSION['branchname'] ."'AND  floor ='". $_SESSION['floor'] ."'");
+    $stmt = mysqli_query($conn, "SELECT distinct room FROM masterfacility WHERE office_client ='$id' AND branchname='". $_SESSION['facilityname'] ."'AND  floor ='". $_SESSION['floor'] ."' AND towername ='". $_SESSION['towername'] ."'");
 ?>
       <option value="<?php echo "select" ?>"><?php echo "Select Room"; ?>
         </option>

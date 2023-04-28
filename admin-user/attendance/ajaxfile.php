@@ -18,7 +18,7 @@ $searchByTodate = mysqli_real_escape_string($conn,$_POST['searchByTodate']);
 ## Search Query
 $searchQuery = array();
 if($searchValue != ''){
-     $searchQuery[] = "(name like '%".$searchValue."%' or department like '%".$searchValue."%' or date like '%".$searchValue."%')";
+     $searchQuery[] = "(name like '%".$searchValue."%' or department like '%".$searchValue."%' or date like '%".$searchValue."%' or attendance like '%".$searchValue."%')";
 }
 
 // Date filter

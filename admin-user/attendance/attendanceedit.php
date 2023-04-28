@@ -2,32 +2,52 @@
 session_start();
 error_reporting(1);
 include('../include/config.php');
-
-
-if (count($_POST) > 0) {
-    $sql = "UPDATE employee_details set name='" . $_POST['name'] . "',department='" . $_POST['department'] . "' , country='" . $_POST['country'] . "' ,state='" . $_POST['state'] . "' ,city='" . $_POST['city'] . "' ,branchname='" . $_POST['branchname'] . "' WHERE id='" . $_GET['edit'] . "'";
-    // $message = "Record Modified Successfully";
-    
-    if ($result = mysqli_query($conn, $sql)) {
-        echo "<script type='text/javascript'>alert('Data updated successfully!!');location='attendancelist.php'; </script>";
-   
-
-        // echo "$sql";
-    } else {
-        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-    }
-
-}
+include('../include/script.php');
 $result = mysqli_query($conn, "SELECT * FROM employee_details WHERE id='" . $_GET['edit'] . "'");
 $row = mysqli_fetch_array($result);
 
+if (isset($_POST['update'])) {
+
+    if(isset($_POST['department'])) {
+        $department = $_POST['department'];
+        if($department == 'option2') {
+            // if 'Others' was selected, use the entered value
+            $department = $_POST['department_others'];
+        }
+    }
+    $name = $_POST['name'];
+    $country = $_POST['country'];
+    $state = $_POST['state'];
+    $city = $_POST['city'];
+    $branchname = $_POST['branchname'];
+
+
+
+    $sql="select * from employee_details where  name ='$name' and department ='$department' and branchname='$branchname' ";
+
+$res=mysqli_query($conn,$sql);
+
+if (mysqli_num_rows($res) > 0) {
+  
+  $row = mysqli_fetch_assoc($res);
+  if($name==isset($row['name']) && $department==isset($row['department']) && $branchname==isset($row['branchname']) && $country==isset($row['country']) && $state==isset($row['state']) && $city==isset($row['city']))
+  {
+    echo "<script type='text/javascript'>alert('Data Already Exists!!');location='attendancelist.php'; </script>";
+  }
+  }
+else{
+//do your insert code here or do something (run your code)
+$sql = "UPDATE employee_details set name='$name',department=' $department' , country='$country' ,state='$state' ,city='$city' ,branchname='$branchname' WHERE id='" . $_GET['edit'] . "'";
+$res=mysqli_query($conn,$sql);
+echo "<script type='text/javascript'>alert('Data Updated successfully!!');location='attendancelist.php'; </script>";
+}
+}
 
 
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -81,7 +101,7 @@ $row = mysqli_fetch_array($result);
 
     <link rel="stylesheet" href="https://kit-pro.fontawesome.com/releases/v5.15.1/css/pro.min.css" />
 
-    
+
 
 </head>
 
@@ -122,36 +142,36 @@ $row = mysqli_fetch_array($result);
                     </ol>
                 </nav>
             </div>
-    <div class="relative py-3 mx-auto text-center sm:w-96">
-            <span class="text-3xl font-semibold text-center pb-4 text-sky-800">Attendance Edit</span>
-            <div class="mt-4 text-left bg-white rounded-lg shadow-xl">
-                <div class="h-2 bg-pink-400 rounded-t-md"></div>
-                <div class="px-8 py-7 ">
-                <form action="" method="post">
-                                <input type="hidden" name="id">
-                                <div>
-                                    <label for="country" class="block mb-1 mt-1 text-sm font-medium text-gray-900 ">Country
-                                       
-                                    </label>
+            <div class="relative py-3 mx-auto text-center sm:w-96">
+                <span class="text-3xl font-semibold text-center pb-4 text-sky-800">Attendance Edit</span>
+                <div class="mt-4 text-left bg-white rounded-lg shadow-xl">
+                    <div class="h-2 bg-pink-400 rounded-t-md"></div>
+                    <div class="px-8 py-7 ">
+                        <form action="" method="post">
+                            <input type="hidden" name="id">
+                            <div>
+                                <label for="country" class="block mb-1 mt-1 text-sm font-medium text-gray-900 ">Country
 
-                                    <input name="country" id="country" readonly="readonly"
-                                        class="  bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block w-full p-2.5"
-                                        value="<?php echo $row['country'] ?>">
-
-
-                                </div>
-                                <div>
-                                <label for="state" class="block mb-1 mt-1 text-sm font-medium text-gray-900 ">State 
                                 </label>
 
-                            <input name="state" id="state"
+                                <input name="country" id="country" readonly="readonly"
+                                    class="  bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block w-full p-2.5"
+                                    value="<?php echo $row['country'] ?>">
+
+
+                            </div>
+                            <div>
+                                <label for="state" class="block mb-1 mt-1 text-sm font-medium text-gray-900 ">State
+                                </label>
+
+                                <input name="state" id="state"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block w-full p-2.5"
                                     value="<?php echo $row  ['state']?>" readonly>
                                 </input>
 
                             </div>
                             <div>
-                                <label for="city" class="block mb-1 mt-1 text-sm font-medium text-gray-900 ">City 
+                                <label for="city" class="block mb-1 mt-1 text-sm font-medium text-gray-900 ">City
                                 </label>
 
                                 <input name="city" id="city"
@@ -160,59 +180,72 @@ $row = mysqli_fetch_array($result);
                                 </input>
 
                             </div>
-                                <div>
-                                    <label for="branchname" class="block mb-1 mt-1 text-sm font-medium text-gray-900 ">Branchname
-                                    </label>
+                            <div>
+                                <label for="branchname"
+                                    class="block mb-1 mt-1 text-sm font-medium text-gray-900 ">Branchname
+                                </label>
 
-                                    <input name="branchname" id="branchname" readonly="readonly"
-                                        class="  bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block w-full p-2.5"
-                                        value="<?php echo $row['branchname'] ?>">
+                                <input name="branchname" id="branchname" readonly="readonly"
+                                    class="  bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block w-full p-2.5"
+                                    value="<?php echo $row['branchname'] ?>">
 
 
-                                </div>
-                              
-                                <label cclass="block mb-1 text-sm font-medium text-gray-900 ">Name</label>
-                                <input type="Text" name="name" placeholder="Enter Empname"
-                                    value="<?php echo $row['name']?>" required
-                                    class="mb-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
-                                <div>
-                                    <label for="department"
-                                        class="block mb-1 text-sm font-medium text-gray-900 ">Department
-                                    </label>
+                            </div>
 
-                                    <select name="department" required
+                            <label cclass="block mb-1 text-sm font-medium text-gray-900 ">Name</label>
+                            <input type="Text" name="name" placeholder="Enter Empname" value="<?php echo $row['name']?>"
+                                required
+                                class="mb-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+                            <div>
+                                <label for="department" class="block mb-2 text-sm font-medium text-gray-900 ">Department
+                                </label>
+                                <select name="department" required id="select"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block w-full p-2.5 ">
+                                    <option value="<?php echo $row['department'] ?>">
+                                        <?php echo $row['department'] ?></option>
+
+                                    <?php $sql = mysqli_query($conn, "select departmentname from masterdepartment");
+
+                                        while ($rw = mysqli_fetch_assoc($sql)) {
+                                        ?>
+
+                                    <option id="noCheck" value="<?php echo $rw['departmentname']; ?>">
+                                        <?php echo $rw['departmentname']; ?>
+                                    </option>
+                                    <?php
+                                        }
+                                        ?>
+                                    <option id="yesCheck" value="option2">Others</option>
+                                </select>
+                                <div id="input-container" style="display:none;">
+                                    <label for="input"
+                                        class="block mb-1 mt-1 text-sm font-medium text-gray-900 ">Others</label>
+                                    <input type="text" name="department_others" id="input" placeholder="Enter Details"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block w-full p-2.5 ">
-                                        <option value="<?php echo $row['department'] ?>">
-                                            <?php echo $row['department'] ?></option>
-
-                                        <?php $sql = mysqli_query($conn, "select departmentname from masterdepartment");
-
-                                    while ($rw = mysqli_fetch_assoc($sql)) {
-                                    ?>
-
-                                        <option value="<?php echo $rw['departmentname']; ?>">
-                                            <?php echo $rw['departmentname']; ?>
-                                        </option>
-                                        <?php
-                                    }
-                                    ?>
-
-
-                                    </select>
-
                                 </div>
-                          
+                                </div>
+
                                 <div class="flex items-baseline justify-center ">
-                                    <button type="submit" name="submit"
+                                    <button type="submit" name="update"
                                         class="px-6 py-2 mt-4 text-white bg-pink-500 rounded-md hover:bg-pink-600 ">Update</button>
                                 </div>
-                            </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+        <script>
+        const select = document.getElementById('select');
+        const inputContainer = document.getElementById('input-container');
 
+        select.addEventListener('change', () => {
+            if (select.value === 'option2') {
+                inputContainer.style.display = 'block';
+            } else {
+                inputContainer.style.display = 'none';
+            }
+        });
+        </script>
 </body>
 
 </html>
-<?php ?>

@@ -151,38 +151,24 @@ $.ajax({
         });
         console.log("this");
     }
+            </script>
 
+
+<script>
     function chat3(val) {
-        // alert('val');
-
         $.ajax({
             type: "POST",
             url: "../tower4.php",
             data: 'room=' + val,
             success: function(data) {
-                $("#wifiname").html(data); 
+                var wifiData = JSON.parse(data);
+                $("#wifiname").val(wifiData[0]); 
+                $("#wifipassword").val(wifiData[1]); 
+                $("#intercom").val(wifiData[2]); 
             }
         });
-        console.log("this");
-    } 
-    // function chat3(val1) {
-    //     // alert('val');
-
-    //     $.ajax({
-    //         type: "POST",
-    //         url: "../tower5.php",
-    //         data: 'room=' + val1,
-    //         success: function(data1) {
-    //             $("#wifipassword").html(data1); 
-    //         }
-    //     });
-    //     console.log("this");
-    // }
-  
-            </script>
-
-
-  
+    }
+</script>
 </head>
 <body>
 <script>

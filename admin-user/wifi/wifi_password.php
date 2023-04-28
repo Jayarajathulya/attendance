@@ -1,8 +1,8 @@
 
 <?php
 session_start();
-$conn = mysqli_connect("localhost", "root", "", "athul9z1_cms");
-
+// $conn = mysqli_connect("localhost", "root", "", "athul9z1_cms");
+include('../include/config.php');
 
 if (!empty($_POST["room"])) {
     $id = ($_POST['room']);

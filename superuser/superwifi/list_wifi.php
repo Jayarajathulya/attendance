@@ -1,12 +1,8 @@
-
 <?php
 session_start();
 error_reporting(0);
-include('../include/config.php');
-
+include_once '../include/config.php';
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -17,18 +13,16 @@ include('../include/config.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Document</title>
-    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.15/dist/tailwind.min.css" />
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" />
     <link rel="stylesheet" href="https://code.jquery.com/jquery-3.5.1.js" />
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js" />
-  <script src="./tailwind.config.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-    <script>
+<script>
         $(document).ready(function () {
             $('#example').DataTable({
                 dom: 'Bfrtip',
-                pageLength: 10,
+                pageLength: 8,
                "processing": true,
             });
         });
@@ -37,10 +31,10 @@ include('../include/config.php');
 
 <body class="items-center bg-zinc-100">
     <div>
-    <?php
-        include('../include/superusersidebar.php')
+        <?php
+        include('../include/superusersidebar.php');
         ?>
-        <div class=" px-2 py-2 ">
+        <div class="px-2 py-2">
             <div class="justify-center w-full mx-auto bg-white">
                 <nav class="flex py-3 border-y" aria-label="Breadcrumb">
                     <ol role="list" class="flex items-center space-x-4">
@@ -61,7 +55,7 @@ include('../include/config.php');
                                     /
                                 </span>
                                 <a href="#" class="ml-4 text-sm font-medium text-pink-500 hover:scale-95 hover:text-sky-900" aria-current="page">
-                                    Facility Wifi List
+                                    Attendance List
                                 </a>
                             </div>
                         </li>
@@ -70,14 +64,14 @@ include('../include/config.php');
             </div>
         </div>
         <section class="">
-            <div class="">
+            <div class="items-center px-8 mx-auto lg:px-16 md:px-12 bg-zinc-100">
             <div class="text-3xl font-semibold text-center pb-4 text-sky-800"> Facility Wifi and intercom list</div>
-                <div class="">
-                    <div class="">
-                        <table id="example" class="">
+                <div class="w-full mb-8 overflow-hidden ">
+                    <div class="w-full overflow-x-auto ">
+                        <table id="example" class="w-full border  border-spacing-1">
                             <thead>
                                 <tr class="font-semibold tracking-wide text-left text-white uppercase bg-pink-600 border-b border-gray-500 text-md">
-                                    <th class="px-4 py-3 whitespace-nowrap ">ID</th>
+                                <th class="px-4 py-3 whitespace-nowrap ">ID</th>
                                     <th class="px-4 py-3 whitespace-nowrap ">country</th>
                                     <th class="px-4 py-3 whitespace-nowrap ">state</th>
                                     <th class="px-4 py-3 whitespace-nowrap ">city</th>
@@ -90,11 +84,10 @@ include('../include/config.php');
                                     <th class="px-4 py-3 whitespace-nowrap ">wifipassword</th>
                                     <th class="px-4 py-3 whitespace-nowrap ">intercom_number</th>
                                     <th class="px-4 py-3 whitespace-nowrap ">ACTION</th>
-                            
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php
+                            <?php
                                 
 
                                 $sql = "SELECT * FROM intercom_wifi";
@@ -138,7 +131,8 @@ include('../include/config.php');
                                     <!-- while ended here -->
                             </tbody>
                         </table>
-                     
+
+                        </div>
                     </div>
                 </div>
         </section>
@@ -149,3 +143,5 @@ include('../include/config.php');
 </body>
 
 </html>
+
+

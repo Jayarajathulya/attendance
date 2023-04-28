@@ -2,11 +2,8 @@
 session_start();
 error_reporting(0);
 include('../include/config.php');
-?>
-        
-<?php
-session_start();
-$conn = mysqli_connect("localhost", "root", "", "athul9z1_cms");
+
+// $conn = mysqli_connect("localhost", "root", "", "athul9z1_cms");
 
 
 if (!empty($_POST["place"])) {

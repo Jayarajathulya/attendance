@@ -5,8 +5,15 @@ session_start();
 include_once '../include/config.php';
 include_once '../include/script.php';
 if (isset($_POST['submit'])) {
+
+    if(isset($_POST['department'])) {
+        $department = $_POST['department'];
+        if($department == 'option2') {
+            // if 'Others' was selected, use the entered value
+            $department = $_POST['department_others'];
+        }
+    }
     $name = $_POST['name'];
-    $department = $_POST['department'];
     $country = $_POST['country'];
     $state = $_POST['state'];
     $city = $_POST['city'];
@@ -192,27 +199,29 @@ echo "<script type='text/javascript'>alert('Data Inserted successfully!!');locat
                                 <div>
                                     <label for="department" class="block mb-2 text-sm font-medium text-gray-900 ">Department
                                     </label>
+                                    <select name="department" required  id="select"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block w-full p-2.5 ">
+                            <option value="">Select Department</option>
 
-                                    <select name="department" required class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block w-full p-2.5 ">
-                                    <option value="">Select Department</option>
-
-                                        <?php $sql = mysqli_query($conn, "select departmentname from masterdepartment");
+                            <?php $sql = mysqli_query($conn, "select departmentname from masterdepartment");
 
                                         while ($rw = mysqli_fetch_assoc($sql)) {
                                         ?>
 
-                                            <option value="<?php echo $rw['departmentname']; ?>">
-                                                <?php echo $rw['departmentname']; ?>
-                                            </option>
-                                        <?php
+                            <option id="noCheck" value="<?php echo $rw['departmentname']; ?>">
+                                <?php echo $rw['departmentname']; ?>
+                            </option>
+                            <?php
                                         }
                                         ?>
-
-
-                                    </select>
-
-                                </div>
-
+                            <option id="yesCheck" value="option2">Others</option>
+                        </select>
+                        <div id="input-container" style="display:none;">
+                        <label for="input" class="block mb-1 mt-1 text-sm font-medium text-gray-900 ">Others</label>
+                        <input type="text" name="department_others" id="input" placeholder="Enter Details" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block w-full p-2.5 ">
+                    </div>
+                    </div>
+                  
                                 <div class="flex items-baseline justify-center ">
                                     <button type="submit" name="submit" class="px-6 py-2 mt-4 text-white bg-pink-500 rounded-md hover:bg-pink-600 ">SAVE</button>
                                 </div>
@@ -223,6 +232,18 @@ echo "<script type='text/javascript'>alert('Data Inserted successfully!!');locat
     </div>
 
 
+    <script>
+    const select = document.getElementById('select');
+    const inputContainer = document.getElementById('input-container');
+
+    select.addEventListener('change', () => {
+        if (select.value === 'option2') {
+            inputContainer.style.display = 'block';
+        } else {
+            inputContainer.style.display = 'none';
+        }
+    });
+    </script>
 </body>
 
 </html>
